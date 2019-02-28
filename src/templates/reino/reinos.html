@@ -1,0 +1,54 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="modal-head" class="window-modal-style">
+
+    <div id="modal-content-edit" class="modal-content-style register">
+        <h3 style="text-align: left;">Editar Reino</h3>
+        <form id="form-1" class="form_reino_1" action="{{url_for('reino.edit_reino',idreino=id )}}" method="post">
+            <br>
+            <input id="text-input-1" type="text" name="reino" value="{{reino}}"><br><br>
+            <button class="button_add_1" type="submit">Alterar</button>
+            <a class="link_a_2" onclick="cancelar(); return false;" href="#">Cancelar</a>
+        </form>
+    </div>
+
+    <div id="modal-content-regiter" class="modal-content-style register">
+        <h3 style="text-align: left;">Adicionar Reino</h3>
+        <form class="form_reino_1" action="{{url_for('reino.reino_add')}}" method="post">
+            <br>
+            <input type="text" name="reino" placeholder="Digite O reino"><br><br>
+            <button class="button_add_1" type="submit">Adicionar+</button>
+            <a class="link_a_2" onclick="cancelar(); return false;" href="{{url_for('reino.reinos')}}">Cancelar</a>
+        </form>
+    </div>
+
+</div>
+
+
+<div id="div_reino_2" class="tabela-0">
+
+
+        {% if session['email'] in config.ADMINS %}
+            <a class="link_add_1" onclick="window_modal_add(); return false;" href="{{url_for('reino.reino_add')}}" role="button">+Adicionar</a>
+            <br>
+            <br>
+        {% endif %}
+            {% for (id, reino) in data %}
+            <div id="{{id}}" class="tr-1">
+
+                    <a style="text-decoration: none;" href="{{url_for('reino.reinoseacher',seacher=reino )}}"><h3> {{ reino }}</h3></a>
+
+                {% if session['email'] in config.ADMINS %}
+                    <a id="apagar{{id}}" class="link_a_1" onclick="deleta({{id}}); return false;"  href="{{url_for('reino.delete_reino',idreino=id )}}">Apagar</a> |
+                    <a class="link_a_1" onclick="window_modal_edit({{id}}, '{{reino}}'); return false;" href="{{url_for('reino.edit_reino',idreino=id )}}">Editar</a>
+
+                {% endif %}
+                <hr>
+
+            </div>
+            {% endfor %}
+        <div id="cancel-js" style=" display: none;">
+            <a id="cancel-ancora-1" onclick="cancel_deleta(); return false;" href="#" style="color: red; font-size: 20px; font-weigth: bold; text-decoration: none;">Cancelar</a>
+        </div>
+</div>
+{% endblock %}

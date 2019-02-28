@@ -1,0 +1,84 @@
+table, tr, td, th{
+    border: 0;
+    text-align: center;
+}
+.tabela-1{
+
+    margin: 0 auto;
+    width: 98%;
+
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+.tabela-0 .tr-0:hover hr{
+    background-color: #606060;
+    color: #003399;
+    transition-duration: .3s;
+    height: 5px;
+
+}
+.td-0{
+    width: 800px;
+}
+.tr-title-0{
+    height: 50px;
+    background-color: #009900;
+    background:	linear-gradient(#0f4341,#003333);
+    cursor: default;
+    color: white;
+    font-weight: bold;
+}
+.tr-title-1{
+    height: 40px;
+    background-color: #0099ff;
+    cursor: default;
+    color: white;
+    font-weight: bold;
+}
+.tabela-2{
+    width: 100%;
+}
+.tabela-2 tr:nth-child(2n){
+    background-color: #cccccc;
+}
+.tabela-2 .tr-0:hover{
+    background-color: #606060;
+    color: #003399;
+    transition-duration: .3s;
+
+}
+.tr-0{
+    height: 45px;
+    background-color: whitesmoke;
+}
+.tr-1{
+    height: auto;
+    background-color: whitesmoke;
+}
+
+
+.tabela-3{
+
+    margin: 0 auto;
+    width: 75%;
+
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+.tabela-3 tr:nth-child(2n){
+    background-color: #cccccc;
+}
+.tabela-3 tr:hover{
+    background-color: #606060;
+    color: #003399;
+    transition-duration: .3s;
+
+}
+.tr-title-3{
+    height: 50px;
+    background-color: #009900;
+    background:	linear-gradient(#0f4341,#003333);
+    cursor: default;
+    color: white;
+    font-weight: bold;
+}

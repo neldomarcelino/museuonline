@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="div_reino_2" class="tabela-0" >
+    {% if session['email'] in config.ADMINS %}
+        <a class="link_add_1" href="{{url_for('familia.familia_add')}}" role="button">+Adicionar</a>
+        <br>
+        <br>
+    {% endif %}
+    {% for (idfamilia, familia, idordem) in data %}
+    <h3> {{ familia }} </h3>
+    <a href="delete/{{idfamilia}}">Delete</a> or <a href="edit/{{idfamilia}}">Edit</a>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}

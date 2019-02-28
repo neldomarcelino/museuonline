@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+{% block content %}
+    {% for (idordem, ordem, idclasse) in data %}
+    <h3> {{ ordem }} </h3>
+    <a href="delete/{{idordem}}">Delete</a> or <a href="edit/{{idordem}}">Edit</a>
+    <hr>
+    {% endfor %}
+{% endblock %}

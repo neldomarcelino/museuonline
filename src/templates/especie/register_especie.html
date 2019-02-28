@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="form-div">
+    <h3>Nova Especie</h3>
+    <form action="{{url_for('especie.especie_add')}}" method="post" name="classe_form">
+
+        <input class="form-input" type="text" name="especie" placeholder="Nome Da Especie">
+        <br>
+        <br>
+        <input class="form-input" type="text" name="nomecomum" placeholder="Nome Comum">
+        <br>
+        <br>
+        <input class="form-input" type="text" name="habitat" placeholder="Habitat">
+        <br>
+        <br>
+        <label>Genero: </label><br><select class="form-input" name="genero">
+            {% for (idgenero, genero, idfamilia) in generos%}
+                <option value="{{idgenero}}">{{genero}}</option>
+            {% endfor %}
+        </select>
+
+        <br>
+        <br>
+        <input class="form-input" type="text" name="coordenadas" placeholder="Digite a coordenadas">
+        <br>
+        <br>
+        <input class="form-input" type="text" name="notas" placeholder="Digite a notas">
+        <br>
+        <br>
+        <input class="form-input" type="text" name="codigo" placeholder="Digite a codigo">
+        <br>
+        <br>
+        <input class="form-input" type="text" name="validacao" placeholder="Digite a validacao">
+        <br>
+        <br>
+        <label>Detalhes</label>
+        <br>
+        <textarea name="detalhes" rows="10" cols="100">
+
+        </textarea>
+        <br>
+        <br>
+        <button class="form-input form-button" type="submit">Proximo</button>
+
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

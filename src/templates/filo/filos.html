@@ -1,0 +1,61 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="modal-head" class="window-modal-style">
+
+    <div id="modal-content-edit" class="modal-content-style register">
+        <h3 style="text-align: left;">Editar FiLo</h3>
+        <form id="form-1" class="form_reino_1" action="{{url_for('filo.edit_filo',idfilo=idfilo )}}" method="post">
+            <br>
+            <input id="text-input-1" type="text" name="filo" value="{{filo}}"><br><br>
+            <button class="button_add_1" type="submit">Alterar</button>
+            <a class="link_a_2" onclick="cancelar(); return false;" href="#">Cancelar</a>
+        </form>
+    </div>
+
+    <div id="modal-content-regiter" class="modal-content-style register">
+        <h3 style="text-align: left;">Adicionar FilO</h3>
+        <form class="form_reino_1" action="{{url_for('filo.filo_add')}}" method="post">
+            <br>
+            <input type="text" name="filo" placeholder="Digite O Filo"><br><br>
+            <br>
+            <br>
+            <input type="text" name="reino" placeholder="Digite O Reino"><br><br>
+            <button class="button_add_1" type="submit">Adicionar+</button>
+            <a class="link_a_2" onclick="cancelar(); return false;" href="{{url_for('filo.filos')}}">Cancelar</a>
+        </form>
+    </div>
+
+</div>
+
+<div id="div_reino_2" class="tabela-0" >
+    {% if session['email'] in config.ADMINS %}
+        <a class="link_add_1" href="{{url_for('filo.filo_add')}}" role="button">+Adicionar</a>
+        <br>
+        <br>
+    {% endif %}
+
+    {% for (idfilo, filo, idreino) in data %}
+
+        <div id="{{idfilo}}" class="tr-0" style="position: relative;">
+            <a style="text-decoration: none;" class="link-1" href="#"><h3> {{ filo }} </h3></a>
+            <div>Reino: {% for (idR, reino) in reino%} {%if idR == idreino%} {{reino}} {%endif%} {%endfor%} </div>
+
+            {% if session['email'] in config.ADMINS %}
+                <div class="edit-delete">
+                <a id="apagar{{idfilo}}" class="link_a_1" onclick="deleta({{idfilo}}); return false;"  href="{{url_for('filo.delete_filo',idfilo=idfilo )}}">Apagar</a> |
+                <a class="link_a_1" onclick="window_modal_edit({{idfilo}}, '{{filo}}'); return false;" href="{{url_for('filo.edit_filo',idfilo=idfilo )}}">Editar</a>
+                </div>
+            {% endif %}
+        </div>
+        <hr>
+
+
+    {% endfor %}
+
+
+    <div id="cancel-js" style=" display: none;">
+        <a id="cancel-ancora-1" onclick="cancel_deleta(); return false;" href="#" style="color: red; font-size: 20px; font-weigth: bold; text-decoration: none;">Cancelar</a>
+    </div>
+</div>
+
+{% endblock %}

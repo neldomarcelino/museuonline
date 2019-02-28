@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="especie-div-style" style="position: relative;" xmlns="http://www.w3.org/1999/html">
+    <div class="busca-especie" id="idDivBusca">
+        <table class="tabela-2">
+            <thead>
+                <tr class="tr-title-1">
+                    <th>Nome  |</th><th>Nome Comum  |</th><th>Habitat</th><th></th>
+                </tr>
+            </thead>
+            <tbody id="tb_data">
+
+            </tbody>
+        </table>
+    </div>
+    {% if session['email'] in config.ADMINS %}
+            <a style="margin-left: 50px;" class="link_add_1" href="{{url_for('especie.especie_add')}}" role="button">+Adicionar</a>
+
+        {% endif %}
+     <input style="float: right" class="procura-2 procura-position" type="text" name="pesquisa" placeholder="pesquisar especie"
+            id="pesquisa" onkeyup="pesquisa_especie()">
+    <br>
+            <br>
+    {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in data %}
+        <div class="especie-div">
+            {% for (idImagem, idEspeci) in fotos %}
+                {% if idespecie == idEspeci%}
+                    <div class="gallery-2 div-img-1">
+                        <img class="img-1" src="{{url_for('static', filename='img/{}/{}.png'.format(idespecie,idImagem))}}" alt="Especie">
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="especie-simple-div">
+                <h1> Nome Especie: {{ especie }} </h1>
+                <h5> Nome Comum: {{nomecomum}} </h5>
+                <h5> Habitat: {{habitat}} </h5>
+                <p> Data: {{datacriacao}} </p>
+                <a href="{{url_for('especie.especie_completa', idespecie=idespecie)}}" role="button"><button class="botao-azul">Ver Mais</button></a>
+                <br>
+            </div>
+            <hr>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

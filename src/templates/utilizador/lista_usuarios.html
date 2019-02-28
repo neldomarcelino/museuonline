@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="modal-head" class="window-modal-style">
+    <div id="modal-delete" class="modal-content-1 modal-delete-style text-inner">
+        <br>
+        <br>
+        <p>Deseja Apagar  Utilizador?</p>
+        <a id="delete-confirm" href="">Confirmar</a> <a href="#" onclick="cancelar_sign(); return false;">Cancelar</a>
+    </div>
+</div>
+
+
+<div class="div-procura-3">
+    <h1>Utilizadores</h1>
+     <input class="procura-2 procura-3" type="text" name="pesquisa" placeholder="Procurar Email"
+                id="pesquisa" onkeyup="pesquisa_utilizador()">
+
+    <a style="margin-left: 550px;" class="link_add_1" href="{{url_for('utilizador.register_user', admin=False)}}">Adicionar+</a>
+</div>
+    <br>
+<table class="tabela-3 div-conta">
+    <thead>
+        <tr class="tr-title-3">
+            <th>Email</th>
+            <th>Password</th>
+            <th>Previlegio</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tb_data">
+        {% for (idutilizador, email, password, idtipo) in usuarios %}
+            <tr>
+                <td>{{email}}</td>
+                <td><input type="password" value="{{password}}" disabled></td>
+                <td>{{idtipo}}</td>
+                <td><a role="button" href="#"> Editar</a></td>
+                <td><a id="{{idutilizador}}" role="button" href="#" onclick="window_modal_delete({{idutilizador}}); return false;"> Apagar</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

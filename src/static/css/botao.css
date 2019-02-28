@@ -1,0 +1,17 @@
+.botao-azul{
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: blue;
+
+    height: 34px;
+    min-width: 110px;
+
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.botao-azul:hover{
+    transition-duration: .3s;
+	color: black;
+}

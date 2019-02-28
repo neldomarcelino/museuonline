@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="modal-content-style register">
+    <br>
+    <h3>Adicionar Filo</h3>
+    <form class="form_reino_1" action="{{url_for('filo.filo_add')}}" method="post">
+        <input type="text" name="filo" placeholder="Digite O Filo">
+        <br>
+        <br>
+        <label>Reino</label><select style="width: 96%; height: 40px; border: 0; " name="reino">
+            {% for (idreino, reino) in reinos%}
+                <option value="{{idreino}}">{{reino}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <button class="button_add_1" type="submit">Adicionar+</button>
+        <a class="link_a_2" href="{{url_for('filo.filos')}}">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

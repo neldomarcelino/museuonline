@@ -1,0 +1,36 @@
+{% extends "index.html"%}
+{% block content %}
+<div class="especie-div-style">
+    <form action="{{url_for('especie.metodo_preservacao', especie=especie, idespecie=idespecie)}}" method="post">
+
+        <fieldset>
+            <legend>Localizacao da Especie({{especie}})</legend>
+            <h4>Localizacao: </h4>
+                <input type="text" list="distrito" name="distrito" placeholder="Distrito" value="Desconhecida">
+                <datalist id="distrito">
+                    {% for (idpessoa, pessoa) in pessoas%}
+                        <option>{{pessoa}}</option>
+                    {% endfor %}
+
+                </datalist>
+        </fieldset>
+
+        <fieldset>
+            <legend>Especie({{especie}}) Preservacao</legend>
+
+                <h4>Metodo Presercacao: </h4>
+                <input type="text" list="metodo" name="metodo" placeholder="Nome" value="Desconhecido">
+                <datalist id="metodo">
+                    {% for (idpessoa, pessoa) in pessoas%}
+                        <option>{{pessoa}}</option>
+                    {% endfor %}
+
+                </datalist>
+
+
+        </fieldset>
+
+        <button type="submit">proximo</button>
+    </form>
+</div>
+{% endblock %}

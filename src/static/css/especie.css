@@ -1,0 +1,178 @@
+.especie-simple-div{
+    min-width: 400px;
+    padding: 10px;
+
+}
+.especie-div{
+    position: relative;
+    left: 20px;
+    width: 62%;
+    height: 270px;
+
+}
+.especie-img-div{
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+
+    width: 600px;
+    cursor: pointer;
+}
+.especie-img{
+    width: 160px;
+    height: 160px;
+}
+.especie-div-style:{
+    background-color: #CCC;
+}
+
+.content-common{
+    width: 49%;
+    margin-top: 30px;
+    float: left;
+}
+.content-img{
+    background-color: #D1D1D0;
+    border-width: 10px;
+
+
+}
+.content-text{
+    float: right;
+}
+
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+.content-logo-img{
+    width: 30px;
+    height: 30px;
+}
+.content-ul{
+    float: right;
+}
+.content-ul li{
+    display: inline;
+    padding: 10px;
+}
+.home-header{
+    min-height: 100px;
+}
+.menu-nav{
+    position: relative;
+
+    margin: 0 auto;
+    width: 100%;
+    min-height: 120px;
+
+    background-color: #D1D1D0;
+}
+.menu-nav-div{
+
+}
+.menu-nav-div-ul{
+    text-align: center;
+}
+.menu-nav-div-ul li{
+    display: inline-block;
+    padding: 20px;
+
+}
+.text-left{
+    text-align: center;
+}
+.my-page{
+    width: 100%;
+    height: 60px;
+    background-color: #0099ff;
+}
+.link-black{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+.button-save-edit{
+    background-color: #00cc33;
+    border-radius: 10px;
+    min-width: 40px;
+    height: 30px;
+    color: black;
+    border: 0;
+    cursor: pointer;
+}
+.button-save-edit:hover{
+    color: white;
+}
+.ul-edit-menu li{
+    display: inline-block;
+    padding: 10px;
+}
+.button-cancel-edit{
+    border: 0;
+    color: #0099ff;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: underline;
+}
+.signal-mais:after{
+    content: "\002B";
+}
+
+.border-radius-0{
+    border-radius: 10px 0 0 10px;
+}
+
+.busca-especie{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 500px;
+
+    background-color: #d1d1d1;
+    box-shadow: 1px 1px 2px #CCC;
+}
+#idDivBusca{
+    display: none;
+}
+
+div.gallery-1 {
+    margin: 2%;
+    border: 1px solid #ccc;
+    float: left;
+    width: 29%;
+    height: 200px;
+
+}
+
+div.gallery-1:hover {
+    border: 1px solid #777;
+}
+
+div.gallery-1 img {
+    width: 100%;
+    height: 100%;
+}
+div.gallery-2 {
+    margin: 2%;
+    border: 1px solid #ccc;
+    float: left;
+    width: 300px;
+    height: 200px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery-2 img {
+    width: 100%;
+    height: 100%;
+}
+}
+
+.mult-none{
+    display: none;
+    opacity: 0;
+}

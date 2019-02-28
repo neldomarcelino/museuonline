@@ -1,0 +1,66 @@
+
+.form-div{
+    margin: 0 auto;
+    width: 980px;
+    min-height: 400px;
+}
+.form-input{
+    width: 96%;
+    height: 45px;
+
+    padding-left: 8px;
+    font-weight: 300;
+    font-size: 18px;
+
+    color: #390000;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px green;
+
+}
+.form-button{
+    cursor: pointer;
+}
+.form-input-image{
+    width: 100px;
+    height: 45px;
+
+    background-color: green;
+}
+.procura-2:active{
+    box-shadow: 1px 1px 2px #0099ff;
+    border-color: white;
+}
+.procura-2:before{
+    content: '\1f50d';
+}
+.procura-position{
+    position: absolute;
+    right: 20px;
+
+}
+.procura-2{
+
+    height: 40px;
+    width: 500px;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    border: 0;
+    border-radius: 10px;
+
+    box-shadow: 1px 1px 6px #0099ff;
+    color: #000000;
+
+    padding-left: 10px;
+
+}
+.procura-3{
+    box-shadow: 0px 0px 2px #003333;
+
+}
+.div-procura-3{
+    margin: 0 auto;
+    width: 75%;
+}

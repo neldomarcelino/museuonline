@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="form-div">
+    <h3>Multimidia</h3>
+    <br>
+    <form action="{{url_for('especie.imagem_especie', idespecie=idespecie)}}" method="post" enctype="multipart/form-data">
+        <label>Imagem</label>
+        <br>
+        <br>
+        <input class="form-input" type="text" name="file_t_2" placeholder="Digite o Caminho">
+        <input title="Imagem" type="file" name="file_t" value="Selecionar" placeholder="Selecionar Imagem" required>
+        <br>
+        <br>
+        <button class="form-input" type="submit">save</button>
+    </form>
+</div>
+{% endblock %}

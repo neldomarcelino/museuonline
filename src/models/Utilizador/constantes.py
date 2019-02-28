@@ -1,0 +1,2 @@
+coleccao = "utilizador"
+pedido = "cadastroPedido"

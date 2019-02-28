@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="div_1">
+    <form id="form_1" action="{{url_for('utilizador.login_user')}}" method="post">
+         <label id="label_1">Autenticacao</label><br><br>
+        <input type="email" name="email" placeholder="Email" required>
+        <br>
+        <br>
+        <input type="password" name="password" placeholder="Password" required>
+        <br>
+        <br>
+       <button type="submit" id="button_1" >Autenticar</button>
+    </form>
+</div>
+
+{% endblock %}

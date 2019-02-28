@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+
+<form action="add" method="post" name="classe_form">
+    <input type="text" name="classe" placeholder="Digite a Classe">
+    <select  name="filo" onchange="reino(reino.value)">
+        <title>Filo</title>
+        {% for (idfilo, filo, idreino) in filos%}
+            <option value="{{idfilo}}">{{filo}}</option>
+        {% endfor %}
+    </select>
+
+    <br>
+    <button type="submit">Add</button>
+</form>
+{% endblock %}

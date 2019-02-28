@@ -1,0 +1,12 @@
+{% extends "especie/especie_completa.html"%}
+{% block multimedia %}
+    {% for name in fotos %}
+    <div class="gallery">
+        <a target="_self" href="#">
+            <img src="{{url_for('static', filename='img/'
+            +id+'/'+name.split('/')[name.split('/').__len__()-1])}}" alt="Especie" width="300" height="200">
+        </a>
+        <div class="desc">Imagem da Especie</div>
+    </div>
+    {% endfor %}
+{% endblock %}

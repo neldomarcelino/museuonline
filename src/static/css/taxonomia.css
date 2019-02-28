@@ -1,0 +1,70 @@
+#div_reino_2{
+    margin: 0 auto;
+    width: 980px;
+}
+.div_reino_1{
+    text-align: center;
+    margin: 0 auto;
+
+    width: 800px;
+    height: 210px;
+
+    box-shadow: 1px 1px 2px green;
+    border-radius: 4px;
+    padding: 40px;
+
+    opacity: 1;
+}
+.form_reino_1 input{
+    width: 96%;
+    height: 45px;
+
+    padding-left: 8px;
+    font-weight: 300;
+    font-size: 18px;
+
+    color: #390000;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px #000000;
+
+}
+.form_reino_1 input: focus{
+    border-color: black;
+}
+
+.button_add_1{
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: #0099ff;
+
+    height: 34px;
+    min-width: 110px;
+
+    border: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.link_add_1{
+    font-weight: bold;
+    font-size: 20px;
+    color: green;
+
+}
+.link_add_2{
+    font-weight: bold;
+    font-size: 16px;
+    color: blue;
+
+}
+.link_sair_1{
+    font-weight: bold;
+    font-size: 12px;
+    color: red;
+
+}
+.label_add_1{
+    font-weight: bold;
+    font-size: 18px;
+}

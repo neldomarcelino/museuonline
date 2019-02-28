@@ -1,0 +1,57 @@
+{% extends "index.html"%}
+{% block content %}
+
+    <div class="form-div">
+        <h3>Especie: Identificacao|Localizacao|Preservacao</h3>
+        <br>
+        <form action="{{url_for('especie.quem_encon_identf', idespecie=idespecie)}}" method="post">
+            <label>Econtrado por: </label>
+            <br>
+            <br>
+            <input class="form-input" type="text" list="pessoa_encontrou" name="pessoa_encontrou" placeholder="Nome" value="Anonimo">
+            <datalist id="pessoa_encontrou">
+                {% for (idpessoa, pessoa) in pessoas%}
+                    <option>{{pessoa}}</option>
+                {% endfor %}
+            </datalist>
+            <br>
+            <br>
+            <label>Identificado por: </label>
+            <br>
+            <br>
+            <input class="form-input" type="text" list="pessoa_identifico" name="pessoa_identifico" placeholder="Nome" value="Anonimo">
+            <datalist id="pessoa_identifico">
+                {% for (idpessoa, pessoa) in pessoas%}
+                    <option>{{pessoa}}</option>
+                {% endfor %}
+            </datalist>
+            <br>
+            <br>
+            <label>Localizado em: </label>
+            <input class="form-input" type="text" list="distrito" name="distrito" placeholder="Distrito" value="Desconhecida">
+            <datalist id="distrito">
+                {% for (idpessoa, pessoa) in pessoas%}
+                    <option>{{pessoa}}</option>
+                {% endfor %}
+
+            </datalist>
+            <br>
+            <br>
+
+            <label>Metodo Presercacao: </label>
+            <br>
+            <br>
+            <input class="form-input" type="text" list="metodo" name="metodo" placeholder="Nome" value="Desconhecido">
+            <datalist id="metodo">
+                {% for (idpessoa, pessoa) in pessoas%}
+                    <option>{{pessoa}}</option>
+                {% endfor %}
+
+            </datalist>
+            <br>
+            <br>
+            <button class="form-input" type="submit">Proximo</button>
+        </form>
+    </div>
+
+{% endblock %}

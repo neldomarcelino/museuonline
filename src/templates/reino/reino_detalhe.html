@@ -1,0 +1,13 @@
+{% extends "index.html"%}
+{% block content %}
+
+<div class="div_reino_1">
+    <h3>Reino: {{reino}}</h3>
+     {% for (id, filo) in data %}
+        <div id="{{id}}" class="tr-0">
+            <h4>{{filo}}</h4>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

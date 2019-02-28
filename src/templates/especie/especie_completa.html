@@ -1,0 +1,133 @@
+{% extends "index.html"%}
+{% block content %}
+
+    <a style="padding-left: 20px;" href="{{url_for('especie.especies')}}" class="link-black">
+        <img alt="" src="{{url_for('static', filename='img/logotipo/back1.png')}}" class="content-logo-img">
+    </a>
+    <br>
+
+    <div class="content-img content-common">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a id="imagem" class="nav-link active" onclick="div_show('image'); return false;" href="#">Imagens</a>
+                </li>
+                <li class="nav-item">
+                    <a id="video" class="nav-link" onclick="div_show('vid'); return false;" href="#">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a id="audio" class="nav-link" onclick="div_show('som'); return false;" href="#">Audios</a>
+                </li>
+            </ul>
+        <br>
+        <div id="image" >
+            <div style="padding-left: 10px;">
+                 {% if session['email']%}
+                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                {% endif %}
+            </div>
+            <br>
+            {% for name in fotos %}
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="vid" class="mult-none">
+            <div style="padding-left: 10px;">
+                 {% if session['email']%}
+                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                {% endif %}
+            </div>
+            <br>
+            {% for name in fotos %}
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="som" class="mult-none">
+            <div style="padding-left: 10px;">
+                 {% if session['email']%}
+                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                {% endif %}
+            </div>
+            <br>
+            {% for name in fotos %}
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="content-text content-common">
+
+        <ul class="content-ul">
+            {% if session['email']%}
+            <li>
+                <a href="#" onclick="alterar_especie()">
+                    <img class="content-logo-img" id="edit" src="{{url_for('static', filename='img/logotipo/edit1.png')}}" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('especie.delete_especie' , idespecie=id)}}">
+                    <img class="content-logo-img" id="delete" src="{{url_for('static', filename='img/logotipo/delete1.png')}}" alt="">
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+
+        {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in data %}
+
+                <h2> Nome Especie: {{ especie }} </h2><hr>
+                <h5> Nome Comum: {{nomecomum}} </h5>
+                <h5> Habitat: {{habitat}} </h5>
+                <h5> Detalhes: {{detalhes}}</h5>
+                <h5> Notas: {{notas}} </h5>
+                <h5> Coordenadas: {{coordenadas}} </h5>
+                <h5> Codigo: {{codigo}}</h5>
+                <p> Data: {{datacriacao}} </p><hr>
+                <br>
+        {% endfor %}
+
+        <h3>Classificacao Cientifica</h3>
+        <table class="tabela-2">
+            <thead>
+                <tr class="tr-title-1">
+                    <th>Caracteristica</th><th>Detalhes</th>
+                </tr>
+            </thead>
+            <tbody id="tb_data">
+        {% for (Especie, Genero, Familia, Ordem, Classe, Filo, Reino) in taxinomia %}
+            <tr class="tr-0"> <td>Nome Especie</td><td>{{Especie}}</td> </tr>
+            <tr class="tr-0"> <td>Genero</td><td>{{Genero}}</td> </tr>
+            <tr class="tr-0"> <td>Familia</td><td>{{Familia}}</td> </tr>
+            <tr class="tr-0"> <td>Ordem</td><td>{{Ordem}}</td> </tr>
+            <tr class="tr-0"> <td>Classe</td><td>{{Classe}}</td> </tr>
+            <tr class="tr-0"> <td>Filo</td><td>{{Filo}}</td> </tr>
+            <tr class="tr-0"> <td>Reino</td><td>{{Reino}}</td> </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+
+        <h5>Metodo de Preservacao: {{preservacao}}</h5>
+        <h5>Encontrado por: {{encontrou}}</h5>
+        <h5>Identificado por: {{identificacao}}</h5>
+        <ul id="ul-edit" class="ul-edit-menu" hidden>
+            <li>
+                <button class="button-save-edit" id="edit-save" type="submit"> Salvar Alteracoes</button>
+            </li>
+            <li>
+                <a class="button-cancel-edit" id="edit-cancel" href="#" onclick="hide_especie()"> Cancelar </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MuseuOnline</title>
+    {% include "dependecias.html"%}
+</head>
+<body onload="destaque()">
+
+<div id="modal-head-sign" class="window-modal-style">
+
+    <div id="modal-content-login" class="modal-content-1 register div_1">
+        <br><br><h2 style="text-align: center;">Autenticação</h2><br>
+        <p id="invalid_email" class="text" hidden>Email ou Palavra Passe Incorectos</p>
+        <form action="{{url_for('utilizador.login_user')}}" method="post">
+
+            <label>Email</label>
+            <br>
+            <input id="email" class="form-input-0" type="email" name="email" placeholder="Email" required>
+                <br>
+                <br>
+            <label>Palavra Passe</label>
+            <br>
+            <input id="password" class="form-input-0" type="password" name="password" placeholder="Palavra passe" required>
+                <br>
+                <br>
+                <br>
+            <button id="button_submit" type="submit" class="button-1" onclick="login(); return false;">Autenticar</button>
+            <a style="margin-left: 44%;" class="link_a_1" href="">
+                <strong>Palavra passe??</strong>
+            </a>
+            <br>
+            <hr>
+            <a style="color: blue;" class="link_a_1" onclick="window_modal_cadastro(); return false;" href="">
+                <strong><u>Cadastrar-se</u></strong>
+            </a>
+
+            <button class="close-1" onclick="cancelar_sign(); return false;" href="#">X</button>
+
+        </form>
+    </div>
+
+    <div id="modal-content-cadastro" class="modal-content-1 register">
+
+        <br><br><h2 style="text-align: center;">Cadastro</h2><br>
+        <form id="" action="{{url_for('utilizador.register_user', admin=False)}}" method="post">
+
+            <label>Email</label>
+            <br>
+            <input class="form-input-0" type="email" name="email" placeholder="Email" required>
+                <br>
+                <br>
+            <label>Palavra Passe</label>
+            <br>
+            <input id="password_2" class="form-input-0" type="password" name="password" placeholder="Palavra passe" required>
+                <br>
+                <br>
+            <label>Confirmar Palavra Passe</label>
+            <br>
+            <input id="password_conf" class="form-input-0" type="password" name="password" placeholder="Palavra passe" required>
+                <br>
+                <br>
+                <br>
+            <button id="pass_sub_cads" type="submit" class="button-1" disabled>Cadastrar-se</button>
+            <a style="color: blue; margin-left: 44%;" class="link_a_1" onclick="window_modal_add(); return false;" href="">
+                <strong><u>Autenticar</u></strong>
+            </a>
+            <br>
+            <hr>
+
+            <button class="close-1" onclick="cancelar_sign(); return false;" href="#">X</button>
+        </form>
+    </div>
+
+</div>
+
+
+<nav style="" class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a id="home" class="nav-item nav-link" role="button" href="{{url_for('home')}}">
+                <!--img class="home-img" src="{{url_for('static', filename='img/logotipo/home1.png')}}" -->
+                Home
+            </a>
+            <a id="especie" class="nav-item nav-link" href="{{url_for('especie.especies')}}" role="button" onclick="menu_destacar('especie')">Especie</a>
+            <a id="genero" class="nav-item nav-link" href="{{url_for('genero.generos')}}" role="button" onclick="menu_destacar('genero')">Genero</a>
+            <a id="familia" class="nav-item nav-link" href="{{url_for('familia.familias')}}" role="button" onclick="menu_destacar('familia')">Familia</a>
+            <a id="ordem" class="nav-item nav-link" href="{{url_for('ordem.ordems')}}" role="button" onclick="menu_destacar('ordem')">Ordem</a>
+            <a id="classe" class="nav-item nav-link" href="{{url_for('classe.classes')}}" role="button" onclick="menu_destacar('classe')">Classe</a>
+            <a id="filo" class="nav-item nav-link" href="{{url_for('filo.filos')}}" role="button" onclick="menu_destacar('filo')">Filo</a>
+            <a id="reino" class="nav-item nav-link" href="{{url_for('reino.reinos')}}" role="button" onclick="menu_destacar('reino')">Reino</a>
+        </div>
+    </div>
+
+
+    <ul class="nav justify-content-end">
+        {% if session['email'] in config.ADMINS %}
+            <li class="nav-item">
+                <a id="utilizadores" class="nav-link nav-item" href="{{url_for('utilizador.utilizadores')}}">Utilizadores</a>
+            </li>
+        {% endif %}
+        {% if session['email']%}
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('utilizador.logout')}}">Sair</a>
+            </li>
+        {% else %}
+        <!--li class="nav-item">
+            <a class="nav-link" href="{{url_for('utilizador.register_user', admin=False)}}">Cadastro</a>
+        </li-->
+        <li class="nav-item">
+            <a class="nav-link" onclick="window_modal_login(); return false;" href="{{url_for('utilizador.login_user')}}">
+                <img src="{{url_for('static', filename='img/logotipo/login2.png') }}" style=" width: 50px; heigth: 40px;">
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+<br>
+<br>
+    {% block content %}
+
+    {% endblock %}
+<br>
+<br>
+<br>
+<script src="{{url_for('static', filename='js/bootstrap/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{url_for('static', filename='js/destaque.js') }}" type="text/javascript"></script>
+<script src="{{url_for('static', filename='js/jquery-3.3.1.js') }}" type="text/javascript"></script>
+<script src="{{url_for('static', filename='js/modal.js') }}" type="text/javascript"></script>
+<script src="{{url_for('static', filename='js/meu_script.js') }}" type="text/javascript"></script>
+<script src="{{url_for('static', filename='js/login.js') }}" type="text/javascript"></script>
+</body>
+</html>

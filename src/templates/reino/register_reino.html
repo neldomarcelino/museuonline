@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="div_reino_1">
+    <form class="form_reino_1" action="{{url_for('reino.reino_add')}}" method="post">
+        <br>
+        <input type="text" name="reino" placeholder="Digite O reino"><br><br>
+        <button class="button_add_1" type="submit">Adicionar+</button><a class="link_a_2" href="{{url_for('reino.reinos')}}">Cancelar</a>
+    </form>
+</div>
+
+{% endblock %}

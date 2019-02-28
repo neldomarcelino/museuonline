@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+
+<form action="add" method="post" name="classe_form">
+    <input type="text" name="ordem" placeholder="Digite a Ordem">
+    <select  name="classe">
+        <title>Classe</title>
+        {% for (idclasse, classe, idfilo) in classes%}
+            <option value="{{idclasse}}">{{classe}}</option>
+        {% endfor %}
+    </select>
+
+    <br>
+    <button type="submit">Add</button>
+</form>
+{% endblock %}
