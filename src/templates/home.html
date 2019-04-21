@@ -1,24 +1,14 @@
 {% extends "index.html" %}
 {% block content %}
-    <!--div class="div-slider-fotos div-slider-fotos-position">
-        <img class="img-slider" src="{{ url_for('static', filename='img/11/15.png')}}" alt="">
-        <button class="div-slider-fotos-button div-slider-fotos-button-position-next">></button>
-        <button class="div-slider-fotos-button div-slider-fotos-button-position-back"><</button>
-    </div-->
+    <header class="img-header" id="t_header">
+        <h1>MuseuOnline Website CB <span><a href="#">Unilrio</a></span></h1>
+    </header>
+
     <div class="div-content-slider">
     <div class="content-slider" style="heigth: auto;">
 
-        <div class="div-3">
-            <h3 class="text"><i>Museu online especies</i></h3>
-            <form class="input-position">
-                <input id="busca" class="procura-2 border-radius-0" type="text" name="busca" placeholder="Procurar Especie" required>
-                <input class="submit-button" id="busca-button" type="submit" value=" ">
-            </form>
-            <!--button class="button-save-edit signal-mais" id="edit-save" type="submit"> Adicionar</button-->
-        </div>
-        <br>
        {% for (idImagem, idEspecie) in fotos %}
-            <div class="gallery div-img-1">
+            <div class="gallery div-img-1 tickimg">
                 <a target="_self" href="{{url_for('especie.especie_completa', idespecie=idEspecie)}}">
                     <img class="img-1" src="{{url_for('static', filename='img/{}/{}.png'.format(idEspecie,idImagem))}}" alt="Especie">
                 </a>

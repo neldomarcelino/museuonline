@@ -2,6 +2,7 @@ from src.config import ADMINS
 from src.database.database import Database
 from src.models.Utilizador.constantes import coleccao,pedido
 from src.database.utils import Utils
+import pytest
 
 
 class Utilizador(object):
@@ -69,3 +70,4 @@ class Utilizador(object):
     @staticmethod
     def editar(idutilizador, email, password):
         Database.update_one("email = '{}' and password = '{}'".format(email, password), coleccao, "idutilizador = {}".format(idutilizador))
+

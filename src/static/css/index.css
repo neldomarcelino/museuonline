@@ -94,7 +94,6 @@ body{
 {
     color: rgba(0,0,0,.9);
 }
-
 .navbar-nav .nav-link:hover{
     text-decoration: overline;
     font-weight: bold;

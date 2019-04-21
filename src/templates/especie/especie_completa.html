@@ -1,72 +1,16 @@
 {% extends "index.html"%}
 {% block content %}
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <a style="padding-left: 20px;" href="{{url_for('especie.especies')}}" class="link-black">
         <img alt="" src="{{url_for('static', filename='img/logotipo/back1.png')}}" class="content-logo-img">
     </a>
     <br>
 
-    <div class="content-img content-common">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a id="imagem" class="nav-link active" onclick="div_show('image'); return false;" href="#">Imagens</a>
-                </li>
-                <li class="nav-item">
-                    <a id="video" class="nav-link" onclick="div_show('vid'); return false;" href="#">Videos</a>
-                </li>
-                <li class="nav-item">
-                    <a id="audio" class="nav-link" onclick="div_show('som'); return false;" href="#">Audios</a>
-                </li>
-            </ul>
-        <br>
-        <div id="image" >
-            <div style="padding-left: 10px;">
-                 {% if session['email']%}
-                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
-                {% endif %}
-            </div>
-            <br>
-            {% for name in fotos %}
-                <div class="gallery-1">
-                    <a target="_self" href="#">
-                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-
-        <div id="vid" class="mult-none">
-            <div style="padding-left: 10px;">
-                 {% if session['email']%}
-                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
-                {% endif %}
-            </div>
-            <br>
-            {% for name in fotos %}
-                <div class="gallery-1">
-                    <a target="_self" href="#">
-                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-
-        <div id="som" class="mult-none">
-            <div style="padding-left: 10px;">
-                 {% if session['email']%}
-                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
-                {% endif %}
-            </div>
-            <br>
-            {% for name in fotos %}
-                <div class="gallery-1">
-                    <a target="_self" href="#">
-                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
-                    </a>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
 
     <div class="content-text content-common">
 
@@ -87,7 +31,7 @@
 
         {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in data %}
 
-                <h2> Nome Especie: {{ especie }} </h2><hr>
+                <h2 style="color: #3498db;"> Nome Especie: {{ especie }} </h2><hr>
                 <h5> Nome Comum: {{nomecomum}} </h5>
                 <h5> Habitat: {{habitat}} </h5>
                 <h5> Detalhes: {{detalhes}}</h5>
@@ -130,4 +74,75 @@
             </li>
         </ul>
     </div>
+
+
+    <div class="content-img content-common">
+        <div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a id="imagem" class="nav-link active" onclick="div_show('image'); return false;" href="#">Imagens</a>
+                </li>
+                <li class="nav-item">
+                    <a id="video" class="nav-link" onclick="div_show('vid'); return false;" href="#">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a id="audio" class="nav-link" onclick="div_show('som'); return false;" href="#">Audios</a>
+                </li>
+            </ul>
+       <br>
+        <div id="image">
+            <div style="padding-left: 10px;">
+                 {% if session['email']%}
+                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                {% endif %}
+            </div>
+            <br>
+            {% for name in fotos %}
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="vid" class="mult-none" >
+            <div style="padding-left: 10px;">
+                 {% if session['email']%}
+                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                {% endif %}
+            </div>
+            <br>
+            {% for name in fotos %}
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div id="som" class="mult-none">
+            <div style="padding-left: 10px;">
+                 {% if session['email']%}
+                <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                {% endif %}
+            </div>
+            <br>
+            <div>
+            {% for name in fotos %}
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<br>
+
 {% endblock %}

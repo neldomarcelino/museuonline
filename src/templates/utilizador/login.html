@@ -1,16 +1,47 @@
 {% extends "index.html" %}
 {% block content %}
-<div class="div_1">
-    <form id="form_1" action="{{url_for('utilizador.login_user')}}" method="post">
-         <label id="label_1">Autenticacao</label><br><br>
-        <input type="email" name="email" placeholder="Email" required>
-        <br>
-        <br>
-        <input type="password" name="password" placeholder="Password" required>
-        <br>
-        <br>
-       <button type="submit" id="button_1" >Autenticar</button>
-    </form>
+
+<div id="modal-head-sign" class="window-modal-style">
+
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="">
+					<span class="login100-form-title-1">
+						Autenticar
+					</span>
+				</div>
+
+				<form class="login100-form " action="{{url_for('utilizador.login_user', admin=False)}}" method="post">
+					<div class="wrap-input100 m-b-26" >
+						<span class="label-input100">Email</span>
+						<input class="input100" type="email" name="email" placeholder="Enter email">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 m-b-18">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<a href="{{url_for('home')}}" class="txt1">Cancelar</a>
+						</div>
+
+						<div>
+							<a href="#" class="txt1">
+								Esquece password?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<input type="submit" id="button_1" class="login-button" value="Confirmar">
+					</div>
+				</form>
+			</div>
+		</div>
 </div>
 
 {% endblock %}

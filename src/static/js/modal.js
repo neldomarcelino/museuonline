@@ -44,7 +44,7 @@ function window_modal_login()
 }
 function cancelar_sign()
 {
-    document.getElementById("modal-head").style.display = 'none';
+    //document.getElementById("modal-head").style.display = 'none';
     document.getElementById("modal-head-sign").style.display = 'none';
     document.getElementById("modal-content-login").style.display = 'none';
     document.getElementById("modal-content-cadastro").style.display = 'none';

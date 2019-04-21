@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  * */
+
+
 function menu_destacar__(link, list){
                 
     var tag_ul = document.getElementsByClassName(list);

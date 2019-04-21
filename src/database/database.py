@@ -19,12 +19,18 @@ class Database(object):
 
     @staticmethod
     def insert(coleccao, data):
+
         try:
             my_query = "insert into {} values ({})".format(coleccao, data)
             Database.cursor.execute(my_query)
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+            return None
+
+        except AttributeError:
+            print("Bugs Insert: {}".format(AttributeError.args))
+
 
     @staticmethod
     def find_one(atributo, coleccao, condicao):
@@ -35,6 +41,7 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+            return None
 
     @staticmethod
     def find_group(atributo, coleccao, group):
@@ -55,6 +62,12 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+            return None
+
+        except AttributeError:
+            print("Bugs:  {}".format(AttributeError))
+
+            return None
 
     @staticmethod
     def find(atributo, coleccao):
