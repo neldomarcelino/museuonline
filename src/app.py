@@ -1,5 +1,6 @@
 from flask import Flask, render_template, session
 
+from src import create_app
 from src.database.database import Database
 from src.models.Especie.especie import Especie
 from src.models.Reino.vista import reino_blueprint
@@ -15,9 +16,7 @@ from src.models.Utilizador.decorators import login_required_admin
 import src.config as config
 
 
-app = Flask(__name__)
-app.config.from_object(config)
-app.secret_key = "sdshfh923eew8/*+-1#$%^^!*"
+app = create_app()
 
 app.register_blueprint(reino_blueprint, url_prefix='/reinos')
 app.register_blueprint(filo_blueprint, url_prefix='/filos')
@@ -54,8 +53,7 @@ def admin():
     return render_template('admin/admin.html')
 
 
-if __name__== '__main__':
-    app.run()
+#if __name__== '__main__':
 #    app.run(port=1786)
 
 
