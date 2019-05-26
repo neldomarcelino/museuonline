@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="369e132b-c1b9-4606-9552-4e0d193e79d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/database/configDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/configDB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Imagem/imagem.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Imagem/imagem.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,11 +143,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/database/configDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="210">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -162,11 +161,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Imagem/imagem.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+              <caret line="57" selection-start-line="57" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -279,8 +278,8 @@
         <option value="$PROJECT_DIR$/src/setup.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
-        <option value="$PROJECT_DIR$/src/database/configDB.py" />
         <option value="$PROJECT_DIR$/src/models/Imagem/imagem.py" />
+        <option value="$PROJECT_DIR$/src/database/configDB.py" />
       </list>
     </option>
   </component>
@@ -584,7 +583,7 @@
     <frame x="0" y="25" width="1600" height="875" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17374763" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17374763" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" weight="0.32974002" />
@@ -596,7 +595,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3261745" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.3261745" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5009512" side_tool="true" weight="0.3986577" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="DB Execution Console" order="11" weight="0.32885906" />
@@ -953,13 +952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/configDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/database/database.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -970,7 +962,14 @@
     <entry file="file://$PROJECT_DIR$/src/models/Imagem/imagem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+          <caret line="57" selection-start-line="57" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/configDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
         </state>
       </provider>
     </entry>
