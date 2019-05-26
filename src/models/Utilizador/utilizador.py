@@ -3,6 +3,8 @@ from src.database.database import Database
 from src.models.Utilizador.constantes import coleccao,pedido
 from src.database.utils import Utils
 import pytest
+from email.message import EmailMessage,errors
+import smtplib
 
 
 class Utilizador(object):
@@ -69,5 +71,54 @@ class Utilizador(object):
 
     @staticmethod
     def editar(idutilizador, email, password):
-        Database.update_one("email = '{}' and password = '{}'".format(email, password), coleccao, "idutilizador = {}".format(idutilizador))
+        Database.update_one(
+            "email = '{}' and password = '{}'".format(email, password), coleccao, "idutilizador = {}".format(idutilizador)
+        )
 
+    @staticmethod
+    def recuperar_password(utilizador):
+        return Utilizador.send_email(utilizador[1], utilizador[2])
+
+    @staticmethod
+    def send_email(email_destino, password):
+        email = EmailMessage()
+        email['Subject'] = "Recuperacao de Password MuseuOnline Unilurio"
+        email['From'] = 'gfernando@unilurio.ac.mz'
+        email['To'] = email_destino
+        try:
+            email.set_content(
+                "Recuperacao do password, utilize o link: {}, para recuperar sua conta no Museu Online UniLurio"
+                "\n\n!".format("facebook.com/"+password)
+            )
+
+            smtp = smtplib.SMTP(host="smtp.gmail.com", port=587)
+
+            smtp.starttls()
+            smtp.login("gfernando@unilurio.ac.mz", "#G!g!l+*12.")
+
+            smtp.send_message(email)
+            smtp.quit()
+
+        except smtplib.SMTPConnectError:
+            return smtplib.SMTPConnectError("123", "Conexao failed")
+
+        except smtplib.SMTPAuthenticationError:
+            return smtplib.SMTPAuthenticationError("124","Erro de autenticacao")
+
+        except smtplib.SMTPServerDisconnected:
+            return smtplib.SMTPServerDisconnected
+
+        except smtplib.SMTPDataError:
+            return "Error"
+
+        except smtplib.SMTPSenderRefused:
+            return smtplib.SMTPSenderRefused("126", "Error send refused", email['To'])
+
+        except smtplib.SMTPResponseException:
+            return smtplib.SMTPResponseException("125", "Error not Respponse")
+
+        except smtplib.SMTPNotSupportedError:
+            return "error Not supported"
+
+        except smtplib.SMTPException:
+            return "ERRORR"

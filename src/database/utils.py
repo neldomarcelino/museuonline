@@ -21,5 +21,4 @@ class Utils(object):
         :param password:
         :return:
         """
-
         return pbkdf2_sha512.encrypt(password)

@@ -3,12 +3,9 @@ from flask import Blueprint, request, session, render_template, url_for, Respons
 from werkzeug.utils import redirect
 
 from src import config
-from src.models.Especie.especie import Especie
-from src.models.Imagem.imagem import Imagem
 from src.models.Utilizador.utilizador import Utilizador
 from src.models.TipoUtilizador.tipoUtilizador import TipoUtilizador
 from src.models.Utilizador.decorators import login_required_admin
-from src.models.Especie.vista import especies
 import xml.etree.cElementTree as txml
 
 utilizador_blueprint = Blueprint('utilizador', __name__)
@@ -16,22 +13,19 @@ utilizador_blueprint = Blueprint('utilizador', __name__)
 
 @utilizador_blueprint.route('/login', methods=['POST','GET'])
 def login_user():
+    message = ""
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
+
 
         if Utilizador.is_login_valid(email, password):
             session['email'] = email
             return redirect(url_for("especie.especies"))
         else:
-            ret = Response()
-            ret.status = "200"
-            ret.get_json(force=False, silent=True, cache=True)
-            ret.mimetype = "application/json"
-            ret.set_data("false")
-            return ret.get_data()
+            message = "Erro: Verrfique o Email ou Password!!"
 
-    return render_template("utilizador/login.html")
+    return render_template("utilizador/login.html", message=message)
 
 
 @utilizador_blueprint.route('/register/<string:admin>', methods=['GET', 'POST'])
@@ -76,6 +70,23 @@ def delete_utilizador(id_utilizador=None):
 def logout():
     session['email'] = None
     return redirect(url_for("especie.especies"))
+
+
+@utilizador_blueprint.route("/recuperar_password/<string:email>", methods=['POST', 'GET'])
+def recuperar_password(email=None):
+    message = " Email nao existe!!"
+    print(email)
+    if request.method == 'GET':
+        #email = request.form['email']
+        utilizador = Utilizador.find_by_email(email)
+        if utilizador is not None:
+            result = Utilizador.recuperar_password(utilizador)
+            if result is not None:
+                message = result
+            else:
+                message += " Verfique no email a palavra passe"
+
+    return render_template("utilizador/login.html", message=message)
 
 
 @utilizador_blueprint.route('/pesquisa/<string:email>', methods=['POST'])

@@ -1,22 +1,23 @@
 {% extends "index.html" %}
 {% block content %}
-<div class="div_1">
-    <form id="form_1" action="{{url_for('utilizador.register_user', admin='admin')}}" method="post">
-        <br>
-        <label id="label_1">Cadastro</label><br><br>
-        <input type="email" name="email" placeholder="Email"><br><br>
-        <input type="password" name="password" placeholder="Password"><br><br>
-        <label>Tipo de Utilzador: </label>
-        {%if admin == 'True'%}
-            <select class="select_1" name="tipoutilizador">
-                {% for (id, utilizador) in data %}
-                    <option value="{{id}}">{{utilizador}}</option>
-                {% endfor %}
-            </select>
-        {% endif %}
+<div id="modal-head-sign" class="window-modal-style">
+    <div class="div_1 ">
+        <form id="form_1" action="{{url_for('utilizador.register_user', admin='admin')}}" method="post">
+            <br>
+            <label id="label_1">Cadastro</label><br><br>
+            <input type="email" name="email" placeholder="Email"><br><br>
+            <input type="password" name="password" placeholder="Password"><br><br>
+            <label>Tipo de Utilzador: </label>
+            {%if admin == 'True'%}
+                <select class="select_1" name="tipoutilizador">
+                    {% for (id, utilizador) in data %}
+                        <option value="{{id}}">{{utilizador}}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
 
-        <button class="button_add_1" type="submit">Registar</button>
-    </form>
+            <button class="button_add_1" type="submit">Registar</button>
+        </form>
+    </div>
 </div>
-
 {% endblock %}

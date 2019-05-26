@@ -138,10 +138,10 @@ div.desc {
 
 .gallery-1 {
     margin: 2%;
+    display: inline-block;
     border: 1px solid #ccc;
-    float: left;
     width: 29%;
-    height: 200px;
+
 
 }
 
@@ -151,7 +151,7 @@ div.desc {
 
 .gallery-1 img {
     width: 100%;
-    height: 100%;
+   height: 200px;
 }
 .gallery-2 {
     margin: 2%;
@@ -173,4 +173,45 @@ div.desc {
 .mult-none{
     display: none;
     opacity: 0;
+}
+
+/*------------------------------------------------------------------
+[ Responsive ]*/
+@media (max-width: 1160px) {
+    .gallery-1 {
+    margin: 2%;
+    border: 1px solid #ccc;
+    float: left;
+    width: 29%;
+    height: 200px;
+
+}
+}
+@media (max-width: 854px) {
+    .gallery-1 {
+    margin: 2%;
+    border: 1px solid #ccc;
+    width: 29%;
+    height: 200px;
+
+}
+}
+@media (max-width: 576px) {
+    .gallery-1 {
+    margin: 2%;
+    border: 1px solid #ccc;
+    width: 29%;
+    height: 200px;
+
+}
+}
+
+@media (max-width: 480px) {
+    .gallery-1 {
+        margin: 2%;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 150px;
+
+    }
 }

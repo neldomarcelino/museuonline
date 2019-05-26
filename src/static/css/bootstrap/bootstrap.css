@@ -508,8 +508,10 @@
 
 
 footer.page-footer {
-  bottom: 0;
-  color: #fff;
+    bottom: 0;
+    color: #fff;
+    margin: 0 auto;
+    position: static;
 }
 footer.page-footer .container-fluid {
     width: auto;

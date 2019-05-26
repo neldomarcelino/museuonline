@@ -1,13 +1,14 @@
 {% extends "index.html" %}
 {% block content %}
+
     <header class="img-header" id="t_header">
-        <h1>MuseuOnline Website CB <span><a href="#">Unilrio</a></span></h1>
+        <p class="h1-header">MuseuOnline Website CB <span><a href="#">Unilrio</a></span></p>
     </header>
 
     <div class="div-content-slider">
     <div class="content-slider" style="heigth: auto;">
 
-       {% for (idImagem, idEspecie) in fotos %}
+        {% for (idImagem, idEspecie) in fotos %}
             <div class="gallery div-img-1 tickimg">
                 <a target="_self" href="{{url_for('especie.especie_completa', idespecie=idEspecie)}}">
                     <img class="img-1" src="{{url_for('static', filename='img/{}/{}.png'.format(idEspecie,idImagem))}}" alt="Especie">
@@ -18,8 +19,9 @@
                     {% endif %}
                 {% endfor %}
             </div>
-    {% endfor %}
+        {% endfor %}
     </div>
     </div>
+
 {% endblock %}
 

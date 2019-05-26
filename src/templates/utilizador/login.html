@@ -12,15 +12,17 @@
 				</div>
 
 				<form class="login100-form " action="{{url_for('utilizador.login_user', admin=False)}}" method="post">
-					<div class="wrap-input100 m-b-26" >
+					<span id="message_error" style="color: red;">{{ message }}</span>
+                    <br>
+                    <div class="wrap-input100 m-b-26" >
 						<span class="label-input100">Email</span>
-						<input class="input100" type="email" name="email" placeholder="Enter email">
+						<input id="email" class="input100" type="email" name="email" placeholder="Enter email" onclick="link_add()" required>
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 m-b-18">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="password" placeholder="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Enter password" required>
 						<span class="focus-input100"></span>
 					</div>
 
@@ -30,9 +32,14 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
+							{{email}}
+							<a id="recovery_email" href="#" class="txt1">
 								Esquece password?
 							</a>
+							<span> | </span>
+							<a role="button" href="{{url_for('utilizador.register_user', admin=False)}}" class="txt1 email">
+                                Criar conta
+                            </a>
 						</div>
 					</div>
 
@@ -43,5 +50,21 @@
 			</div>
 		</div>
 </div>
+<script type=text/javascript>
+    $(function() {
 
+        $('#recovery_email').bind('click', function() {
+            email =  $('#email').val();
+            $("#recovery_email").attr("href", "{{url_for('utilizador.recuperar_password', email=email)}}"+email);
+
+
+        });
+        $('#email').bind('click', function() {
+            message = $('#message_error');
+            message.text("");
+        });
+    });
+
+
+</script>
 {% endblock %}

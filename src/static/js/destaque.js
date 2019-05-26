@@ -13,6 +13,7 @@ function menu_destacar(ancora){
     $("#"+ancora).addClass("active-1");
 
 }
+
 function destaque(){
     var path = window.location.pathname.split("/")[1];
 

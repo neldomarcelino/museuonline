@@ -35,9 +35,10 @@
 }
 .div-content-slider{
     margin: 0 auto;
-    width: 80%;
-    min-height: 750px;
+    width: 90%;
+
 }
+
 .content-slider{
     border-width: 10px;
 
@@ -45,9 +46,9 @@
 div.gallery {
     margin: 2%;
     border: 1px solid #ccc;
-    float: left;
-    width: 21%;
-    height: 300px;
+    display: inline-block;
+    width: 20%;
+    height: 280px;
     background-color: #fff;
 
 }
@@ -125,3 +126,66 @@ div.gallery img {
 
     align-text: center;
 }
+.h1-header{
+    font-size: 50px;
+}
+/*------------------------------------------------------------------
+[ Responsive ]*/
+@media (max-width: 1160px) {
+    div.gallery {
+        margin: 2%;
+        border: 1px solid #ccc;
+        float: left;
+        width: 29%;
+        height: 250px;
+        background-color: #fff;
+
+    }
+    .h1-header{
+        font-size: 42px;
+    }
+}
+@media (max-width: 854px) {
+    div.gallery {
+        margin: 2%;
+        border: 1px solid #ccc;
+        float: left;
+        width: 42%;
+        height: 250px;
+        background-color: #fff;
+
+    }
+    .h1-header{
+        font-size: 36px;
+    }
+}
+@media (max-width: 576px) {
+    div.gallery {
+        display: block;
+        margin: 2%;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 300px;
+        background-color: #fff;
+
+    }
+    .h1-header{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    div.gallery {
+        margin: 2%;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 250px;
+        background-color: #fff;
+        display: block;
+
+    }
+    .h1-header{
+        font-size: 18px;
+    }
+}
+

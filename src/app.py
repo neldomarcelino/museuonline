@@ -11,6 +11,7 @@ from src.models.Genero.vista import genero_blueprint
 from src.models.Especie.vista import especie_blueprint
 from src.models.Utilizador.vista import utilizador_blueprint
 from src.models.Imagem.imagem import Imagem
+from src.models.Utilizador.decorators import login_required_admin
 import src.config as config
 
 
@@ -45,6 +46,12 @@ def home():
     fotos = Imagem.find_all()
     especies = Especie.find_all()
     return render_template('/home.html', fotos=fotos, especies=especies)
+
+
+@app.route('/admin')
+@login_required_admin
+def admin():
+    return render_template('admin/admin.html')
 
 
 if __name__== '__main__':
