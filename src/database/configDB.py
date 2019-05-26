@@ -12,5 +12,6 @@ config = {
     'host': 'us-cdbr-iron-east-02.cleardb.net',
     'database': 'heroku_fe2fda8c7cbd379',
     'autocommit': True,
-    'port': 3306
+    'port': 3306,
+    'pool_size': 5
 }

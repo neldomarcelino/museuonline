@@ -55,7 +55,7 @@ class Imagem(object):
 
     @staticmethod
     def find_all():
-        data = Database.find_group('MAX(idImagem) idImagem, idEspecie', coleccao,'idEspecie')
+        data = None#Database.find_group('MAX(idImagem) idImagem, idEspecie', coleccao,'idEspecie')
         if data is not None:
             return data
 
