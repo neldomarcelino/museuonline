@@ -25,13 +25,7 @@
             <br>
     {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in data %}
         <div class="especie-div">
-            {% for (idImagem, idEspeci) in fotos %}
-                {% if idespecie == idEspeci%}
-                    <div class="gallery-2 div-img-1">
-                        <img class="img-1" src="{{url_for('static', filename='img/{}/{}.png'.format(idespecie,idImagem))}}" alt="Especie">
-                    </div>
-                {% endif %}
-            {% endfor %}
+
             <div class="especie-simple-div">
                 <h1> Nome Especie: {{ especie }} </h1>
                 <h5> Nome Comum: {{nomecomum}} </h5>
