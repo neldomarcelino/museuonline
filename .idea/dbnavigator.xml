@@ -27,9 +27,6 @@
       <connection connection-id="15c733dc-85aa-4573-99dd-3c3e28a752cb">
         <schema name="osoma" object-types="view, table" />
       </connection>
-      <connection connection-id="ddd186df-b1fe-4439-9b1d-63d0ab752edd">
-        <schema name="heroku_fe2fda8c7cbd379" object-types="procedure, view, function, table" />
-      </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
