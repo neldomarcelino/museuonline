@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="369e132b-c1b9-4606-9552-4e0d193e79d9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/deploy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/configDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/configDB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/deploy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +93,7 @@
           <entry key="map" value="1" />
           <entry key="png" value="24" />
           <entry key="psql" value="3" />
-          <entry key="py" value="487" />
+          <entry key="py" value="488" />
           <entry key="pyi" value="1" />
           <entry key="rnc" value="3" />
           <entry key="sql" value="5" />
@@ -112,7 +109,7 @@
           <entry key="Image" value="28" />
           <entry key="JavaScript" value="69" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="Python" value="487" />
+          <entry key="Python" value="488" />
           <entry key="PythonStub" value="1" />
           <entry key="RNG Compact" value="3" />
           <entry key="SQL" value="2" />
@@ -155,11 +152,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <caret line="18" column="24" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/deploy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
             </state>
           </provider>
         </entry>
@@ -248,8 +254,8 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/src/config.py" />
         <option value="$PROJECT_DIR$/src/app.py" />
-        <option value="$PROJECT_DIR$/src/deploy.py" />
         <option value="$PROJECT_DIR$/src/database/configDB.py" />
+        <option value="$PROJECT_DIR$/src/deploy.py" />
       </list>
     </option>
   </component>
@@ -296,12 +302,6 @@
               <item name="MuseuOnline" type="b2602c69:ProjectViewProjectNode" />
               <item name="MuseuOnline" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MuseuOnline" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MuseuOnline" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MuseuOnline" type="b2602c69:ProjectViewProjectNode" />
@@ -925,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deploy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="43" column="19" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -945,7 +938,14 @@
     <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <caret line="18" column="24" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deploy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
