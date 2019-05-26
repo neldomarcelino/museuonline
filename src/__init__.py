@@ -45,7 +45,7 @@ def create_app():
     def home():
         fotos = Imagem.find_all()
         especies = Especie.find_all()
-        return render_template('/home.html', fotos=fotos, especies=especies)
+        return render_template('/home.html', especies=especies)
 
     @app.route('/admin')
     @login_required_admin
