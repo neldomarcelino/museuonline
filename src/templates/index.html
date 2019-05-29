@@ -30,17 +30,25 @@
 									<a class="gn-icon gn-icon-search"><span>Procurar</span></a>
 								</li>
 								<li>
-									<a class="gn-icon gn-icon-download">Especies</a>
-									<ul class="gn-submenu">
-										<li><a class="gn-icon gn-icon-illustrator">Genero</a></li>
-										<li><a class="gn-icon gn-icon-photoshop">Reino</a></li>
-									</ul>
+									<a class="gn-icon gn-icon-download" href="{{url_for('especie.especies')}}">Especies</a>
+									<!--<ul class="gn-submenu">-->
+										<!--<li><a class="gn-icon gn-icon-illustrator">Genero</a></li>-->
+										<!--<li><a class="gn-icon gn-icon-photoshop">Reino</a></li>-->
+									<!--</ul>-->
 								</li>
+								<li><a class="gn-icon gn-icon-help" href="{{url_for('genero.generos')}}">Genero</a></li>
+								<li><a class="gn-icon gn-icon-help" href="{{url_for('familia.familias')}}">Familia</a></li>
+								<li><a class="gn-icon gn-icon-help" href="{{url_for('ordem.ordems')}}">Ordem</a></li>
+								<li><a class="gn-icon gn-icon-help" href="{{url_for('classe.classes')}}">Classe</a></li>
+								<li><a class="gn-icon gn-icon-help" href="{{url_for('filo.filos')}}">Filo</a></li>
+								<li><a class="gn-icon gn-icon-help" href="{{url_for('reino.reinos')}}">Reino</a></li>
+
 								{% if session['email'] in config.ADMINS %}
 									<li>
 										<a class="gn-icon gn-icon-cog" href="{{url_for('admin')}}">Administrador</a>
 									</li>
 								{% endif %}
+
 								<li><a class="gn-icon gn-icon-help">Sobre</a></li>
 
 							</ul>
@@ -62,7 +70,8 @@
 					</li>
 				{% else %}
 					<li>
-						<a class="codrops-icon codrops-icon-drop" href="{{url_for('utilizador.login_user')}}">
+						<a class="codrops-icon codrops-icon-drop" >
+							<!--<p>href="{{url_for('utilizador.login_user')}}"</p>-->
 							<span> Autenticar</span>
 						</a>
 					</li>
