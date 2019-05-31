@@ -55,7 +55,7 @@ def admin():
     return render_template('admin/admin.html')
 
 
-if __name__== '__main__':
-   app.run(port=1786)
+# if __name__== '__main__':
+#    app.run(port=1786)
 
 
