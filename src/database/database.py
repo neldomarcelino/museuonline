@@ -31,7 +31,6 @@ class Database(object):
         except AttributeError:
             print("Bugs Insert: {}".format(AttributeError.args))
 
-
     @staticmethod
     def find_one(atributo, coleccao, condicao):
         try:

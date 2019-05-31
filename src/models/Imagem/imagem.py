@@ -55,7 +55,7 @@ class Imagem(object):
 
     @staticmethod
     def find_all():
-        data = None#Database.find_group('MAX(idImagem) idImagem, idEspecie', coleccao,'idEspecie')
+        data = Database.find_group('MAX(idImagem) idImagem, idEspecie', coleccao,'idEspecie')
         if data is not None:
             return data
 
@@ -71,8 +71,3 @@ class Imagem(object):
     def all_img_path(idespecie):
         names = glob.glob(path_image+"/{}/*".format(idespecie))
         return names
-
-
-#names = Imagem.all_img_path(34)
-#for name in names:
-#    print(name.split("/")[name.split("/").__len__()-1])

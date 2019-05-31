@@ -16,7 +16,9 @@ from src.models.Utilizador.decorators import login_required_admin
 import src.config as config
 
 
-app = create_app()
+app = Flask(__name__)
+app.config.from_object(config)
+app.secret_key = "sdshfh923eew8/*+-1#$%^^!*"
 
 app.register_blueprint(reino_blueprint, url_prefix='/reinos')
 app.register_blueprint(filo_blueprint, url_prefix='/filos')
@@ -53,7 +55,7 @@ def admin():
     return render_template('admin/admin.html')
 
 
-#if __name__== '__main__':
-#    app.run(port=1786)
+if __name__== '__main__':
+   app.run(port=1786)
 
 

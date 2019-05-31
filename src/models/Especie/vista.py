@@ -1,4 +1,4 @@
-from flask import Blueprint, request, session, render_template, url_for, make_response, Response
+from flask import Blueprint, request, session, render_template, url_for, make_response, Response, flash
 from werkzeug.utils import redirect, secure_filename
 import datetime
 import xml.etree.cElementTree as txml
@@ -72,9 +72,25 @@ def metodo_preservacao(idespecie=None):
 
 @especie_blueprint.route('/imagem_especie/<string:idespecie>', methods=['POST', 'GET'])
 def imagem_especie(idespecie=None):
+
     if request.method == 'POST':
+
+        # check if the post request has the file part
+        if 'file_t' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+
         imagem = request.files['file_t']
-        Imagem.imagem_processamento(imagem, idespecie)
+
+        if imagem.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+
+        if imagem and allowed_file(imagem.filename):
+            Imagem.imagem_processamento(imagem, idespecie)
+        else:
+            flash('No selected Imagem')
+            return redirect(request.url)
 
         return redirect(url_for(".especie_completa", idespecie=idespecie))
     return render_template("especie/multimedia_especie.html", idespecie=idespecie)
@@ -130,18 +146,20 @@ def edit_especie(idespecie=None):
 @especie_blueprint.route('/especie/completa/<string:idespecie>')
 def especie_completa(idespecie):
     especie = Especie.find_by_id(idespecie)
+    if especie is None:
+        return redirect(url_for(".especies"))
+    else:
+        genero=''
+        for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao,
+             datacriacao) in especie:
+            genero = genero
 
-    genero=''
-    for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao,
-         datacriacao) in especie:
-        genero = genero
-
-    taxinomia = Especie.find_taxinomia(idespecie, genero)
-    especie = Especie.find_by_id(idespecie)
-    nome = QuemIdentificou.find_pessoa_especie(idespecie)
-    encontrou = QuemEncontrou.find_pessoa_especie(idespecie)
-    preservacao = PreservacaoEspecie.find_pessoa_especie(idespecie)
-    fotos = Imagem.all_img_path(idespecie)
+        taxinomia = Especie.find_taxinomia(idespecie, genero)
+        especie = Especie.find_by_id(idespecie)
+        nome = QuemIdentificou.find_pessoa_especie(idespecie)
+        encontrou = QuemEncontrou.find_pessoa_especie(idespecie)
+        preservacao = PreservacaoEspecie.find_pessoa_especie(idespecie)
+        fotos = Imagem.all_img_path(idespecie)
 
     return render_template('especie/especie_completa.html', data=especie,
                            identificacao=nome, encontrou=encontrou, preservacao=preservacao, id=idespecie, taxinomia=taxinomia, fotos=fotos)
@@ -193,3 +211,9 @@ def pesquisa_especie(especie=None):
     b.get_json(force=False, silent=True, cache=True)
     b.mimetype = "application/xml"
     return b.get_data()
+
+
+def allowed_file(filename):
+    allowed_extensions = {'png', 'jpg', 'jpeg', 'gif'}
+    return '.' in filename and \
+       filename.rsplit('.', 1)[1].lower() in allowed_extensions

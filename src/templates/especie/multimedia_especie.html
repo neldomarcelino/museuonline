@@ -3,6 +3,9 @@
 <div class="form-div">
     <h3>Multimidia</h3>
     <br>
+    {% for message in get_flashed_messages() %}
+        <div class=flash>{{ message }}</div>
+    {% endfor %}
     <form action="{{url_for('especie.imagem_especie', idespecie=idespecie)}}" method="post" enctype="multipart/form-data">
         <label>Imagem</label>
         <br>

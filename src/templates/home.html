@@ -7,8 +7,20 @@
 
     <div class="div-content-slider">
     <div class="content-slider" style="heigth: auto;">
-
-
+        {% if fotos != None%}
+            {% for (idImagem, idEspecie) in fotos %}
+                    <div class="gallery div-img-1">
+                        <a target="_self" href="{{url_for('especie.especie_completa', idespecie=idEspecie)}}">
+                            <img class="img-1" src="{{url_for('static', filename='img/{}/{}.png'.format(idEspecie,idImagem))}}" alt="Especie">
+                        </a>
+                        {% for (id, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in especies %}
+                            {% if idEspecie == id %}
+                                <div class="desc">{{especie }} | {{ nomecomum}}</div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+            {% endfor %}
+        {% endif %}
     </div>
     </div>
 
