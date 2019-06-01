@@ -98,8 +98,8 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
-        finally:
-            raise mysql.connector.InterfaceError("Interface error")
+        except mysql.connector.InterfaceError as e:
+            raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
 
     @staticmethod
     def update_one(atributo, colleccao, condicao):
