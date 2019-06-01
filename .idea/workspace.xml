@@ -127,7 +127,7 @@
           <entry key="gitignore" value="3" />
           <entry key="html" value="17183" />
           <entry key="js" value="4032" />
-          <entry key="py" value="23762" />
+          <entry key="py" value="23781" />
           <entry key="sql" value="21" />
           <entry key="taxonomia" value="89" />
           <entry key="txt" value="110" />
@@ -140,7 +140,7 @@
           <entry key="HTML" value="17183" />
           <entry key="JavaScript" value="4032" />
           <entry key="PLAIN_TEXT" value="188" />
-          <entry key="Python" value="23762" />
+          <entry key="Python" value="23781" />
         </counts>
       </usages-collector>
     </session>
@@ -159,8 +159,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/database/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-453">
-              <caret line="50" column="67" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
+            <state relative-caret-position="267">
+              <caret line="98" selection-start-line="98" selection-end-line="99" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -974,8 +974,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/database/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-453">
-          <caret line="50" column="67" selection-start-line="50" selection-start-column="67" selection-end-line="50" selection-end-column="67" />
+        <state relative-caret-position="267">
+          <caret line="98" selection-start-line="98" selection-end-line="99" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
