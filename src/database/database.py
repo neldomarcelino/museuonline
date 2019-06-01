@@ -31,6 +31,12 @@ class Database(object):
         except AttributeError:
             print("Bugs Insert: {}".format(AttributeError.args))
 
+        except errors.OperationalError as e:
+            print("Many connection--{}".format(e.msg))
+
+        finally:
+            Database.connect_db.cmd_reset_connection()
+
     @staticmethod
     def find_one(atributo, coleccao, condicao):
         try:
@@ -41,6 +47,9 @@ class Database(object):
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
             return None
+        finally:
+            Database.connect_db.cmd_reset_connection()
+
 
     @staticmethod
     def find_group(atributo, coleccao, group):
@@ -49,12 +58,16 @@ class Database(object):
             Database.cursor.execute(my_query)
             return Database.cursor.fetchall()
 
+
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
 
         except mysql.connector.errors.DatabaseError as e:
             print("==========++++++@@@@@@@@@@@@@@@@@{}".format(e.msg))
+
+        finally:
+            Database.connect_db.cmd_reset_connection()
 
     @staticmethod
     def find_one_only(atributo, coleccao, condicao):
@@ -74,6 +87,8 @@ class Database(object):
             print("Bugs:  {}".format(AttributeError))
 
             return None
+        finally:
+            Database.connect_db.cmd_reset_connection()
 
     @staticmethod
     def find(atributo, coleccao):
@@ -84,6 +99,8 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+        finally:
+            Database.connect_db.cmd_reset_connection()
 
     @staticmethod
     def update_one(atributo, colleccao, condicao):
@@ -93,6 +110,8 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+        finally:
+            Database.connect_db.cmd_reset_connection()
 
     @staticmethod
     def update_all(atributo, colleccao):

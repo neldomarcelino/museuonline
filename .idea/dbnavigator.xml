@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="ddd186df-b1fe-4439-9b1d-63d0ab752edd">
-        <schema name="heroku_fe2fda8c7cbd379" object-types="constraint, dataset trigger, view, table, procedure, function, column, index" />
+        <schema name="heroku_fe2fda8c7cbd379" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>
