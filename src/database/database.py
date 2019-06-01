@@ -48,12 +48,13 @@ class Database(object):
             my_query = "select {} from {} group by {}".format(atributo, coleccao, group)
             Database.cursor.execute(my_query)
             return Database.cursor.fetchall()
+
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
 
         except mysql.connector.errors.DatabaseError as e:
-            print("{}".format(e.msg))
+            print("==========++++++@@@@@@@@@@@@@@@@@{}".format(e.msg))
 
     @staticmethod
     def find_one_only(atributo, coleccao, condicao):

@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="ddd186df-b1fe-4439-9b1d-63d0ab752edd">
+        <schema name="heroku_fe2fda8c7cbd379" object-types="constraint, dataset trigger, view, table, procedure, function, column, index" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="15c733dc-85aa-4573-99dd-3c3e28a752cb">
@@ -45,6 +49,11 @@
     <connection id="ddd186df-b1fe-4439-9b1d-63d0ab752edd" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="ddd186df-b1fe-4439-9b1d-63d0ab752edd" dataset="heroku_fe2fda8c7cbd379.especieimagem" active-filter-id="f31ddc0c-19d5-4533-8e25-db69f91132ad">
+      <filter id="f31ddc0c-19d5-4533-8e25-db69f91132ad" name="12" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="idImagem" operator="=" value="12" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="dd18e6fd-d5a4-4d5c-b0d8-257ed7381e8f" dataset="museuonlinebd.especieImagem" active-filter-id="f1a93ab2-0ec6-4240-ad47-a8cbe56050f2">
       <filter id="f1a93ab2-0ec6-4240-ad47-a8cbe56050f2" name="11" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="idEspecie" operator="=" value="11" active="true" />
