@@ -52,6 +52,9 @@ class Database(object):
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
 
+        except mysql.connector.errors.DatabaseError as e:
+            print("{}".format(e.msg))
+
     @staticmethod
     def find_one_only(atributo, coleccao, condicao):
         try:
@@ -61,6 +64,9 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+                return None
+        except mysql.connector.errors.DatabaseError as e:
+            print("{}".format(e.msg))
             return None
 
         except AttributeError:
