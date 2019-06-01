@@ -35,7 +35,7 @@ class Database(object):
             print("Many connection--{}".format(e.msg))
 
         finally:
-            Database.connect_db.cmd_reset_connection()
+            raise mysql.connector.InterfaceError("Interface error")
 
     @staticmethod
     def find_one(atributo, coleccao, condicao):
@@ -48,8 +48,7 @@ class Database(object):
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
             return None
         finally:
-            Database.connect_db.cmd_reset_connection()
-
+            raise mysql.connector.InterfaceError("Interface error")
 
     @staticmethod
     def find_group(atributo, coleccao, group):
@@ -67,7 +66,7 @@ class Database(object):
             print("==========++++++@@@@@@@@@@@@@@@@@{}".format(e.msg))
 
         finally:
-            Database.connect_db.cmd_reset_connection()
+            raise mysql.connector.InterfaceError("Interface error")
 
     @staticmethod
     def find_one_only(atributo, coleccao, condicao):
@@ -88,7 +87,7 @@ class Database(object):
 
             return None
         finally:
-            Database.connect_db.cmd_reset_connection()
+            raise mysql.connector.InterfaceError("Interface error")
 
     @staticmethod
     def find(atributo, coleccao):
@@ -100,7 +99,7 @@ class Database(object):
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
         finally:
-            Database.connect_db.cmd_reset_connection()
+            raise mysql.connector.InterfaceError("Interface error")
 
     @staticmethod
     def update_one(atributo, colleccao, condicao):
@@ -111,7 +110,8 @@ class Database(object):
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
         finally:
-            Database.connect_db.cmd_reset_connection()
+            raise mysql.connector.InterfaceError("Interface error")
+
 
     @staticmethod
     def update_all(atributo, colleccao):
