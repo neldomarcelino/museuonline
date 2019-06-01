@@ -34,8 +34,9 @@ class Database(object):
         except errors.OperationalError as e:
             print("Many connection--{}".format(e.msg))
 
-        finally:
-            raise mysql.connector.InterfaceError("Interface error")
+        except mysql.connector.InterfaceError as e:
+
+            raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
 
     @staticmethod
     def find_one(atributo, coleccao, condicao):
@@ -47,8 +48,8 @@ class Database(object):
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
             return None
-        finally:
-            raise mysql.connector.InterfaceError("Interface error")
+        except mysql.connector.InterfaceError as e:
+            raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
 
     @staticmethod
     def find_group(atributo, coleccao, group):
@@ -65,8 +66,8 @@ class Database(object):
         except mysql.connector.errors.DatabaseError as e:
             print("==========++++++@@@@@@@@@@@@@@@@@{}".format(e.msg))
 
-        finally:
-            raise mysql.connector.InterfaceError("Interface error")
+        except mysql.connector.InterfaceError as e:
+            raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
 
     @staticmethod
     def find_one_only(atributo, coleccao, condicao):
@@ -86,8 +87,8 @@ class Database(object):
             print("Bugs:  {}".format(AttributeError))
 
             return None
-        finally:
-            raise mysql.connector.InterfaceError("Interface error")
+        except mysql.connector.InterfaceError as e:
+            raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
 
     @staticmethod
     def find(atributo, coleccao):
