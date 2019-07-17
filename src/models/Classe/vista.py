@@ -6,7 +6,7 @@ from src.models.Filo.filo import Filo
 from src.models.Reino.reino import Reino
 
 classe_blueprint = Blueprint('classe', __name__)
-from src.models.Utilizador.decorators import login_required, login_required_admin
+from src.models.Utilizador.decorators import login_required_user, login_required_admin
 
 
 @classe_blueprint.route('/add', methods=['POST', 'GET'])

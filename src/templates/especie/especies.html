@@ -2,13 +2,16 @@
 {% block content %}
 <br>
 <br><br><br><br>
-<div class="especie-div-style"  xmlns="http://www.w3.org/1999/html">
+<div class="especie-div-style" xmlns="http://www.w3.org/1999/html">
     <div class="busca-especie" id="idDivBusca">
         <table class="tabela-2">
             <thead>
-                <tr class="tr-title-1">
-                    <th>Nome  |</th><th>Nome Comum  |</th><th>Habitat</th><th></th>
-                </tr>
+            <tr class="tr-title-1">
+                <th>Nome |</th>
+                <th>Nome Comum |</th>
+                <th>Habitat</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody id="tb_data">
 
@@ -16,26 +19,40 @@
         </table>
     </div>
     {% if session['email'] in config.ADMINS %}
-            <a style="margin-left: 50px;" class="link_add_1" href="{{url_for('especie.especie_add')}}" role="button">+Adicionar</a>
+    <a style="margin-left: 50px;" class="link_add_1" href="{{url_for('especie.especie_add')}}"
+       role="button">+Adicionar</a>
 
-        {% endif %}
-     <input style="float: right" class="procura-2 procura-position" type="text" name="pesquisa" placeholder="pesquisar especie"
-            id="pesquisa" onkeyup="pesquisa_especie()">
+    {% endif %}
+    <form action="{{url_for('especie.pesquisa_completa')}}" method="get" class="procura-position">
+        <input placeholder="Procurar" type="search" name="procura" class="gn-search procura-2" style="
+                    color: black; background-color: white; padding-right: 1px;">
+        <input type="submit" style="height: 40px; background-color: #0099ff; color: fff;"
+               class="gn-icon gn-icon-search button-save-edit" value="Buscar">
+    </form>
     <br>
-            <br>
-    {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in data %}
-        <div class="especie-div">
+    <br>
+    {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao,
+    datacriacao, esimg, img, idImagem) in data %}
+    <div class="especie-div">
 
-            <div class="especie-simple-div">
-                <h1> Nome Especie: {{ especie }} </h1>
-                <h5> Nome Comum: {{nomecomum}} </h5>
-                <h5> Habitat: {{habitat}} </h5>
-                <p> Data: {{datacriacao}} </p>
-                <a href="{{url_for('especie.especie_completa', idespecie=idespecie)}}" role="button"><button class="botao-azul">Ver Mais</button></a>
-                <br>
-            </div>
-            <hr>
+        <div class="gallery-2 div-img-1">
+            <a href="{{url_for('especie.especie_completa', idespecie=idespecie)}}">
+                <img class="img-1" src="{{url_for('static', filename='img/{}/{}.png'.format(idespecie,idImagem))}}"
+                     alt="Especie Sem Fotos">
+            </a>
         </div>
+        <div class="especie-simple-div">
+            <h1> Nome Especie: {{ especie }} </h1>
+            <h5> Nome Comum: {{nomecomum}} </h5>
+            <h5> Habitat: {{habitat}} </h5>
+            <p> Data: {{datacriacao}} </p>
+            <a href="{{url_for('especie.especie_completa', idespecie=idespecie)}}" role="button">
+                <button class="botao-azul">Ver Mais</button>
+            </a>
+            <br>
+        </div>
+        <hr>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

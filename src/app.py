@@ -1,6 +1,5 @@
 from flask import Flask, render_template, session
 
-from src import create_app
 from src.database.database import Database
 from src.models.Especie.especie import Especie
 from src.models.Reino.vista import reino_blueprint
@@ -55,7 +54,7 @@ def admin():
     return render_template('admin/admin.html')
 
 
-# if __name__== '__main__':
-#    app.run(port=1786)
+if __name__== '__main__':
+    app.run(port=1786)
 
 

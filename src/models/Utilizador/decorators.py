@@ -3,7 +3,7 @@ from flask import g, request, redirect, url_for, session
 from src.config import ADMINS
 
 
-def login_required(f):
+def login_required_user(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'email' not in session.keys() or session['email'] is None:

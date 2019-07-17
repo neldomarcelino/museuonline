@@ -3,6 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+function show_modal(id_div, id_img){
+    $("#"+id_div).css("display", "block");
+    $("#img").attr("src", id_img);
+}
+function close_modal(id){
+    $("#"+id).css("display", "none");
+}
 
 function window_modal_add()
 {

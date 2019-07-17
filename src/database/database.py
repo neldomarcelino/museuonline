@@ -91,6 +91,23 @@ class Database(object):
             raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
 
     @staticmethod
+    def find_by_query(query):
+        try:
+            Database.cursor.execute(query)
+            return Database.cursor.fetchall()
+
+        except mysql.connector.ProgrammingError as err:
+            if err.errno == errorcode.ER_SYNTAX_ERROR:
+                errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+
+        except mysql.connector.errors.DatabaseError as e:
+            print("==========++++++@@@@@@@@@@@@@@@@@{}".format(e.msg))
+            raise e
+
+        except mysql.connector.InterfaceError as e:
+            raise mysql.connector.InterfaceError("{} Interface error".format(e.msg))
+
+    @staticmethod
     def find(atributo, coleccao):
         try:
             my_query = "select {} from {}".format(atributo, coleccao)
@@ -108,10 +125,19 @@ class Database(object):
             my_query = "update {} set {} where {}".format(colleccao, atributo, condicao)
             Database.cursor.execute(my_query)
         except mysql.connector.ProgrammingError as err:
-            if err.errno == errorcode.ER_SYNTAX_ERROR:
-                errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
-        finally:
-            raise mysql.connector.InterfaceError("Interface error")
+            raise err.msg
+
+        except mysql.connector.DataError as err:
+            raise err.msg
+
+        except mysql.connector.IntegrityError as err:
+            raise err.msg
+
+        except mysql.connector.DatabaseError as err:
+            raise err.msg
+
+        except mysql.connector.Error as err:
+            raise err.msg
 
 
     @staticmethod
@@ -140,4 +166,5 @@ class Database(object):
         except mysql.connector.ProgrammingError as err:
             if err.errno == errorcode.ER_SYNTAX_ERROR:
                 errorDB.syntaxError("Erro de sintaxe, verfique a consulta SQL!!")
+
 

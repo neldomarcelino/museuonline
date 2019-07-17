@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+{% block content %}
+<div id="modal-head-sign" class="window-modal-style">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-form-title" style="">
+                <span class="login100-form-title-1">
+                    Minha Conta
+                </span>
+            </div>
+            <form class="login100-form " action="{{url_for('utilizador.editar_conta')}}" method="post">
+                <h4><span style="color: green;">{{message}}</span></h4>
+                <br>
+                <input type="hidden" value="{{id}}" name="id">
+                <div class="wrap-input100 m-b-26">
+                    <span class="label-input100">Email</span>
+                    <input id="email" class="input100" type="email" name="email" placeholder="Enter email"
+                           value="{{email_u}}" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 m-b-18 confirm-closex">
+                    <span class="label-input100">Password</span>
+                    <input class="input100" type="password" name="password" placeholder="Enter password"
+                           value="{{password}}" required disabled>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 m-b-18 confirmedit" style="display: none;">
+                    <span class="label-input100">New Password</span>
+                    <input class="input100" type="password" name="password" placeholder="Enter new password" required>
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 m-b-18 confirmedit" style="display: none;">
+                    <span class="label-input100">Confirm Password</span>
+                    <input class="input100" type="password" name="password_r" placeholder="Confirm password" required>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="flex-sb-m w-full p-b-30">
+                    <div class="contact100-form-checkbox">
+                        <a onclick="edit_user(); return false;" href="#" class="txt1">Editar</a>
+                        <span>|</span>
+                        <a href="{{url_for('home')}}" class="txt1">Cancelar</a>
+                    </div>
+
+                </div>
+
+                <div class="container-login100-form-btn confirmedit" style="display: none;">
+                    <input type="submit" id="button_1" class="login-button" value="Confirmar">
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+<script>
+    function edit_user(){
+        $(".confirmedit").css("display", "block");
+        $(".confirm-closex").css("display", "none");
+    }
+
+
+</script>
+{% endblock %}

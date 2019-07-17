@@ -3,6 +3,7 @@ from flask import Blueprint, request, session, render_template, url_for, Respons
 from werkzeug.utils import redirect
 
 from src import config
+from src.database.utils import Utils
 from src.models.Utilizador.utilizador import Utilizador
 from src.models.TipoUtilizador.tipoUtilizador import TipoUtilizador
 from src.models.Utilizador.decorators import login_required_admin
@@ -120,3 +121,29 @@ def pesquisa_especie(email=None):
     b.get_json(force=False, silent=True, cache=True)
     b.mimetype = "application/xml"
     return b.get_data()
+
+
+@utilizador_blueprint.route("/minhaconta/<string:user>")
+def minha_conta(user):
+    utilizador = Utilizador.find_pesquisa(user)
+    id = None
+    email_u = None
+    passw = None
+
+    for (idutilizador, email, password, idtipo) in utilizador:
+        id = idutilizador
+        email_u = email
+        passw = password
+
+    return render_template("utilizador/minha_conta.html", id=id, email_u=email_u, password=passw)
+
+
+@utilizador_blueprint.route("/editarconta", methods=['POST'])
+def editar_conta():
+    id = request.form['id']
+    email = request.form['email']
+    password = request.form['password_r']
+
+    Utilizador.editar(id, email, password)
+    message = "Alterado com sucesso!"
+    return render_template("utilizador/minha_conta.html", id=id, email_u=email, password="******", message = message)

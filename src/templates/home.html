@@ -2,7 +2,15 @@
 {% block content %}
 
     <header class="img-header" id="t_header">
-        <p class="h1-header">MuseuOnline Website CB <span><a href="#">Unilrio</a></span></p>
+        <form action="{{url_for('especie.pesquisa_completa')}}" method="get">
+         <input placeholder="Procurar" type="search" name="procura" class="gn-search procura-2" style="width: 40%; bor der: 2px;
+                    color: black; background-color: white;">
+                    <input type="submit" style="height: 40px; background-color: #0099ff; color: fff;" class="gn-icon gn-icon-search button-save-edit" value="Buscar"><span>Procurar</span></input>
+            </form>
+        <p class="h1-header">MuseuOnline Website CB <span>
+
+        </span>
+        </p>
     </header>
 
     <div class="div-content-slider">
@@ -22,6 +30,9 @@
             {% endfor %}
         {% endif %}
     </div>
+    </div>
+    <div style="display: block; float: clear; height: auto;">
+
     </div>
 
 {% endblock %}

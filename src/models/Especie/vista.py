@@ -3,7 +3,7 @@ from werkzeug.utils import redirect, secure_filename
 import datetime
 import xml.etree.cElementTree as txml
 
-from src.models.Utilizador.decorators import login_required
+from src.models.Utilizador.decorators import login_required_user, login_required_admin
 from src.models.Especie.especie import Especie
 from src.models.Genero.genero import Genero
 from src.models.QuemIdentificou.quemIdentificou import QuemIdentificou
@@ -17,6 +17,7 @@ especie_blueprint = Blueprint('especie', __name__)
 
 
 @especie_blueprint.route('/add', methods=['POST', 'GET'])
+@login_required_user
 def especie_add():
     if request.method == 'POST':
         especie = request.form['especie']
@@ -40,6 +41,7 @@ def especie_add():
 
 
 @especie_blueprint.route('/quem_encon_identf/<string:idespecie>', methods=['POST', 'GET'])
+@login_required_user
 def quem_encon_identf(idespecie=None):
     if request.method == 'POST':
         encontrou = request.form['pessoa_encontrou']
@@ -58,6 +60,7 @@ def quem_encon_identf(idespecie=None):
 
 
 @especie_blueprint.route('/metodo_preservacao/<string:idespecie>', methods=['POST', 'GET'])
+@login_required_user
 def metodo_preservacao(idespecie=None):
     if request.method == 'POST':
         metodo = request.form['metodo']
@@ -71,6 +74,7 @@ def metodo_preservacao(idespecie=None):
 
 
 @especie_blueprint.route('/imagem_especie/<string:idespecie>', methods=['POST', 'GET'])
+@login_required_user
 def imagem_especie(idespecie=None):
 
     if request.method == 'POST':
@@ -103,13 +107,12 @@ def image(idespecie):
 
 @especie_blueprint.route('/mostra')
 def especies():
-    data = Especie.find_all()
-    fotos = Imagem.find_all()
-    return render_template("especie/especies.html", data=data, fotos=fotos)
+    data = Especie.find_pesquisa_completa("")
+    return render_template("especie/especies.html", data=data)
 
 
 @especie_blueprint.route('/delete/<string:idespecie>')
-@login_required
+@login_required_admin
 def delete_especie(idespecie):
     especie = Especie.find_by_id(idespecie)
     if especie is not None:
@@ -119,7 +122,7 @@ def delete_especie(idespecie):
 
 
 @especie_blueprint.route('/edit/<string:idespecie>', methods=['POST', 'GET'])
-@login_required
+@login_required_admin
 def edit_especie(idespecie=None):
     especie = Especie.find_by_id(idespecie)
     if especie is not None:
@@ -217,3 +220,10 @@ def allowed_file(filename):
     allowed_extensions = {'png', 'jpg', 'jpeg', 'gif'}
     return '.' in filename and \
        filename.rsplit('.', 1)[1].lower() in allowed_extensions
+
+
+@especie_blueprint.route('/busca', methods=['GET'])
+def pesquisa_completa():
+    search = request.args['procura'];
+    data = Especie.find_pesquisa_completa(search)
+    return render_template("especie/especies.html", data=data)

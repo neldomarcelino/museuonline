@@ -39,6 +39,18 @@ class Especie(object):
             return data
 
     @staticmethod
+    def find_pesquisa_completa(especie):
+        query = """
+            SELECT * 
+                FROM especie e left join 
+                (SELECT i.idEspecie es, i.imagem img, i.idImagem imdid FROM especieImagem i) s1 on s1.es = e.idEspecie
+                    WHERE e.NomeComum like '%{}%' """.format(especie)
+
+        data = Database.find_by_query(query)
+        if data is not None:
+            return data
+
+    @staticmethod
     def find_by_id(idespecie):
 
         data = Database.find_one('*', coleccao, " idespecie= {}".format(idespecie))

@@ -35,8 +35,7 @@
     content: '\1f50d';
 }
 .procura-position{
-    position: absolute;
-    right: 20px;
+    text-align: center;
 
 }
 .procura-2{

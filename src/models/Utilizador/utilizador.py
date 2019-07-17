@@ -71,8 +71,9 @@ class Utilizador(object):
 
     @staticmethod
     def editar(idutilizador, email, password):
+        password = Utils.hash_password(password)
         Database.update_one(
-            "email = '{}' and password = '{}'".format(email, password), coleccao, "idutilizador = {}".format(idutilizador)
+            "email='{}',Senha='{}'".format(email, password), coleccao, "idutilizador = {}".format(idutilizador)
         )
 
     @staticmethod

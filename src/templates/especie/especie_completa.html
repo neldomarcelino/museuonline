@@ -1,5 +1,11 @@
 {% extends "index.html"%}
 {% block content %}
+
+<div id="modal_img" class="window-modal-style" onclick="close_modal('modal_img')" style="display: none;">
+    <div class="modal-content-style container-login100">
+        <img id="img" src="" >
+    </div>
+</div>
 <div>
     <br>
     <br>
@@ -11,8 +17,8 @@
     </a>
     <br>
 
-    {% if data == None  or taxinomia == None%}
-            <h1 style="text-align: center">Especie nao encontrada!!</h1>
+    {% if data == None or taxinomia == None%}
+    <h1 style="text-align: center">Especie nao encontrada!!</h1>
     {% else %}
     <div class="content-text content-common">
 
@@ -20,129 +26,308 @@
             {% if session['email']%}
             <li>
                 <a href="#" onclick="alterar_especie()">
-                    <img class="content-logo-img" id="edit" src="{{url_for('static', filename='img/logotipo/edit1.png')}}" alt="">
+                    <img class="content-logo-img" id="edit"
+                         src="{{url_for('static', filename='img/logotipo/edit1.png')}}" alt="">
                 </a>
             </li>
             <li>
                 <a href="{{url_for('especie.delete_especie' , idespecie=id)}}">
-                    <img class="content-logo-img" id="delete" src="{{url_for('static', filename='img/logotipo/delete1.png')}}" alt="">
+                    <img class="content-logo-img" id="delete"
+                         src="{{url_for('static', filename='img/logotipo/delete1.png')}}" alt="">
                 </a>
             </li>
             {% endif %}
         </ul>
 
-            {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao, datacriacao) in data %}
+        {% for (idespecie, especie, genero, habitat, coordenadas, notas, detalhes, nomecomum, codigo, validacao,
+        datacriacao) in data %}
 
-                    <h2 style="color: #3498db;"> Nome Especie: {{ especie }} </h2><hr>
-                    <h5> Nome Comum: {{nomecomum}} </h5>
-                    <h5> Habitat: {{habitat}} </h5>
-                    <h5> Detalhes: {{detalhes}}</h5>
-                    <h5> Notas: {{notas}} </h5>
-                    <h5> Coordenadas: {{coordenadas}} </h5>
-                    <h5> Codigo: {{codigo}}</h5>
-                    <p> Data: {{datacriacao}} </p><hr>
-                    <br>
-            {% endfor %}
+        <h2 style="color: #3498db;"> Nome Científico: {{ especie }} </h2>
+        <hr>
+        <h5> Nome Comum: {{nomecomum}} </h5>
+        <h5> Coordenadas: {{coordenadas}} </h5>
+        <p> Data: {{datacriacao}} </p>
+        <hr>
+        <br>
 
-            <h3>Classificacao Cientifica</h3>
-            <table class="tabela-2">
-                <thead>
-                    <tr class="tr-title-1">
-                        <th>Caracteristica</th><th>Detalhes</th>
-                    </tr>
-                </thead>
-                <tbody id="tb_data">
+
+        <div class="row">
+            <div class="column row">
+                <ul class="tabs" data-tabs="lqk6uv-tabs" id="example-tabs">
+                    <li class="tabs-title is-active" role="presentation">
+                        <a href="#panel0" aria-selected="true" role="tab" aria-controls="panel0" id="panel0-label">Descrição</a>
+                    </li>
+                    <li class="tabs-title" role="presentation">
+                        <a href="#panel1" role="tab" aria-controls="panel1" aria-selected="false" id="panel1-label">Habitat</a>
+                    </li>
+                    <li class="tabs-title" role="presentation">
+                        <a href="#panel2" role="tab" aria-controls="panel2" aria-selected="false" id="panel2-label">Notas</a>
+                    </li>
+                    <li class="tabs-title" role="presentation">
+                        <a href="#panel4" role="tab" aria-controls="panel4" aria-selected="false" id="panel4-label">Ameaças</a>
+                    </li>
+                    <li class="tabs-title" role="presentation">
+                        <a href="#panel5" role="tab" aria-controls="panel5" aria-selected="false" id="panel5-label">Conservação</a>
+                    </li>
+                    <li class="tabs-title" role="presentation">
+                        <a href="#panel6" role="tab" aria-controls="panel6" aria-selected="false" id="panel6-label">Saber
+                            mais</a>
+                    </li>
+
+                </ul>
+
+                <div class="tabs-content" data-tabs-content="example-tabs">
+
+                    <div class="tabs-panel is-active" id="panel0" role="tabpanel" aria-hidden="false"
+                         aria-labelledby="panel0-label">
+                        <p>
+                            {{detalhes}}
+                            <br>
+                        </p>
+                    </div>
+
+                    <div class="tabs-panel" id="panel1" role="tabpanel" aria-hidden="true"
+                         aria-labelledby="panel1-label">
+                        <p>
+                            {{habitat}}
+                        </p>
+                    </div>
+
+                    <div class="tabs-panel" id="panel2" role="tabpanel" aria-hidden="true"
+                         aria-labelledby="panel2-label">
+                        <p>
+                            {{notas}}
+                        </p>
+                    </div>
+
+                    <div class="tabs-panel" id="panel4" role="tabpanel" aria-hidden="true"
+                         aria-labelledby="panel4-label">
+                        <p>
+                            Sem ameaças a destacar.
+                        </p>
+                    </div>
+
+                    <div class="tabs-panel" id="panel5" role="tabpanel" aria-hidden="true"
+                         aria-labelledby="panel5-label">
+                        <p>
+                            {{preservacao}}
+                        </p>
+                    </div>
+
+                    <div class="tabs-panel" id="panel6" role="tabpanel" aria-hidden="true"
+                         aria-labelledby="panel6-label">
+                        <p>
+                        </p>
+                        <div class="nome">
+                            <h4>Autores:</h4>
+                            <h5>Encontrado por: {{encontrou}}</h5>
+                            <h5>Identificado por: {{identificacao}}</h5>
+
+                        </div>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="tabs-panel" id="panel8">
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+
+                        $(document).foundation();
+
+                        $(document).ready(function()
+                        {
+                            $("#owl-example").owlCarousel({
+                            autoPlay : 10000,
+                            navigation : false, // Show next and prev buttons
+                            slideSpeed : 500,
+                            paginationSpeed : 1000,
+                            singleItem: true,
+                            lazyEffect: "fade",
+                            rewindNav: true
+                            });
+
+                            $('#myList').listnav(
+                            {
+                            includeAll: false,
+                            noMatchText: 'Não foram encontrados resultados.'
+                            });
+
+                            $('#myList2').listnav(
+                            {
+                            includeAll: false,
+                            noMatchText: 'Não foram encontrados resultados.'
+                            });
+
+                            $('#myList3').listnav(
+                            {
+                            includeAll: false,
+                            noMatchText: 'Não foram encontrados resultados.'
+                            });
+
+                            $('#myList4').listnav(
+                            {
+                            includeAll: false,
+                            noMatchText: 'Não foram encontrados resultados.'
+                            });
+
+                            $('#myList5').listnav(
+                            {
+                            includeAll: false,
+                            noMatchText: 'Não foram encontrados resultados.'
+                            });
+
+                            $('#rdmap_id').imageMapResize();
+                        });
+
+                        $(document).on({
+                            "contextmenu": function(e) {
+                                var target = $(e.target);
+                                if(target.is("img")) {
+                                    // Stop the context menu
+                                    e.preventDefault();
+                                    alert('Download interdito!');
+                                }
+                            }
+                        });
+
+            </script>
+
+        </div>
+        <br>
+        {% endfor %}
+
+        <h3>Classificacao Cientifica</h3>
+        <table class="tabela-2">
+            <thead>
+            <tr class="tr-title-1">
+                <th>Caracteristica</th>
+                <th>Detalhes</th>
+            </tr>
+            </thead>
+            <tbody id="tb_data">
             {% for (Especie, Genero, Familia, Ordem, Classe, Filo, Reino) in taxinomia %}
-                <tr class="tr-0"> <td>Nome Especie</td><td>{{Especie}}</td> </tr>
-                <tr class="tr-0"> <td>Genero</td><td>{{Genero}}</td> </tr>
-                <tr class="tr-0"> <td>Familia</td><td>{{Familia}}</td> </tr>
-                <tr class="tr-0"> <td>Ordem</td><td>{{Ordem}}</td> </tr>
-                <tr class="tr-0"> <td>Classe</td><td>{{Classe}}</td> </tr>
-                <tr class="tr-0"> <td>Filo</td><td>{{Filo}}</td> </tr>
-                <tr class="tr-0"> <td>Reino</td><td>{{Reino}}</td> </tr>
+            <tr class="tr-0">
+                <td>Nome Especie</td>
+                <td>{{Especie}}</td>
+            </tr>
+            <tr class="tr-0">
+                <td>Genero</td>
+                <td>{{Genero}}</td>
+            </tr>
+            <tr class="tr-0">
+                <td>Familia</td>
+                <td>{{Familia}}</td>
+            </tr>
+            <tr class="tr-0">
+                <td>Ordem</td>
+                <td>{{Ordem}}</td>
+            </tr>
+            <tr class="tr-0">
+                <td>Classe</td>
+                <td>{{Classe}}</td>
+            </tr>
+            <tr class="tr-0">
+                <td>Filo</td>
+                <td>{{Filo}}</td>
+            </tr>
+            <tr class="tr-0">
+                <td>Reino</td>
+                <td>{{Reino}}</td>
+            </tr>
             {% endfor %}
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 
-            <h5>Metodo de Preservacao: {{preservacao}}</h5>
-            <h5>Encontrado por: {{encontrou}}</h5>
-            <h5>Identificado por: {{identificacao}}</h5>
-            <ul id="ul-edit" class="ul-edit-menu" hidden>
-                <li>
-                    <button class="button-save-edit" id="edit-save" type="submit"> Salvar Alteracoes</button>
+
+        <ul id="ul-edit" class="ul-edit-menu" hidden>
+            <li>
+                <button class="button-save-edit" id="edit-save" type="submit"> Salvar Alteracoes</button>
+            </li>
+            <li>
+                <a class="button-cancel-edit" id="edit-cancel" href="#" onclick="hide_especie()"> Cancelar </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="content-img content-common" style="background-color: ccc;">
+        <div  style="background-color: ccc;">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a id="imagem" class="nav-link active" onclick="div_show('image'); return false;"
+                       href="#">Imagens</a>
                 </li>
-                <li>
-                    <a class="button-cancel-edit" id="edit-cancel" href="#" onclick="hide_especie()"> Cancelar </a>
+                <li class="nav-item">
+                    <a id="video" class="nav-link" onclick="div_show('vid'); return false;" href="#">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a id="audio" class="nav-link" onclick="div_show('som'); return false;" href="#">Audios</a>
                 </li>
             </ul>
-        </div>
-
-
-        <div class="content-img content-common">
-            <div>
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a id="imagem" class="nav-link active" onclick="div_show('image'); return false;" href="#">Imagens</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="video" class="nav-link" onclick="div_show('vid'); return false;" href="#">Videos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="audio" class="nav-link" onclick="div_show('som'); return false;" href="#">Audios</a>
-                    </li>
-                </ul>
-           <br>
-            <div id="image">
+            <br>
+            <div id="image" style="background-color: ccc;">
                 <div style="padding-left: 10px;">
-                     {% if session['email']%}
-                    <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais"> Adicionar</button></a>
+                    {% if session['email']%}
+                    <a href="{{url_for('especie.imagem_especie', idespecie=id)}}">
+                        <button class="button-save-edit signal-mais"> Adicionar</button>
+                    </a>
                     {% endif %}
                 </div>
                 <br>
                 {% for name in fotos %}
-                    <div class="gallery-1">
-                        <a target="_self" href="#">
-                            <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
-                        </a>
-                    </div>
+                <div class="gallery-1">
+                    <a target="_self" onclick="show_modal('modal_img', '{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}'); return false;" href="#">
+                        <img id="{{name}}"  src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}"
+                             alt="Especie" width="300" height="200">
+                    </a>
+                </div>
                 {% endfor %}
             </div>
 
-            <div id="vid" class="mult-none" >
+            <div id="vid" class="mult-none">
                 <div style="padding-left: 10px;">
-                     {% if session['email']%}
-                    <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais"> Adicionar</button></a>
+                    {% if session['email']%}
+                    <a href="{{url_for('especie.imagem_especie', idespecie=id)}}">
+                        <button class="button-save-edit signal-mais"> Adicionar</button>
+                    </a>
                     {% endif %}
                 </div>
                 <br>
                 {% for name in fotos %}
-                    <div class="gallery-1">
-                        <a target="_self" href="#">
-                            <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
-                        </a>
-                    </div>
+                <div class="gallery-1">
+                    <a target="_self" href="#">
+                        <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}"
+                             alt="Especie" width="300" height="200">
+                    </a>
+                </div>
                 {% endfor %}
             </div>
 
             <div id="som" class="mult-none">
                 <div style="padding-left: 10px;">
-                     {% if session['email']%}
-                    <a href="{{url_for('especie.imagem_especie', idespecie=id)}}"><button class="button-save-edit signal-mais" id=""> Adicionar</button></a>
+                    {% if session['email']%}
+                    <a href="{{url_for('especie.imagem_especie', idespecie=id)}}">
+                        <button class="button-save-edit signal-mais" id=""> Adicionar</button>
+                    </a>
                     {% endif %}
                 </div>
                 <br>
                 <div>
-                {% for name in fotos %}
+                    {% for name in fotos %}
                     <div class="gallery-1">
                         <a target="_self" href="#">
-                            <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}" alt="Especie" width="300" height="200">
+                            <img src="{{url_for('static', filename='img/{}/{}'.format(id,name.split('/')[name.split('/').__len__()-1]))}}"
+                                 alt="Especie" width="300" height="200">
                         </a>
                     </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
             </div>
-          </div>
         </div>
+    </div>
     {% endif %}
 </div>
 <br>
