@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="369e132b-c1b9-4606-9552-4e0d193e79d9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/static/css/bootstrap/foundation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/js/foundation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/static/js/jquery-2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/utilizador/minha_conta.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/configDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/configDB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Classe/vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Classe/vista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Especie/especie.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Especie/especie.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Especie/vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Especie/vista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Utilizador/decorators.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Utilizador/decorators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Utilizador/utilizador.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Utilizador/utilizador.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Utilizador/vista.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Utilizador/vista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/bootstrap/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/css/bootstrap/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/especie.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/css/especie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/formulario.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/css/formulario.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/googleNexus/css/component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/googleNexus/css/component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/js/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/admin/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/admin/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/dependecesBoot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/dependecesBoot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/especie/especie_completa.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/especie/especie_completa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/especie/especies.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/especie/especies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Admin/especie_admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/database/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/test_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/test_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/test_utilizador.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/test_utilizador.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_app.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +98,7 @@
           <entry key="map" value="1" />
           <entry key="png" value="24" />
           <entry key="psql" value="4" />
-          <entry key="py" value="550" />
+          <entry key="py" value="552" />
           <entry key="pyi" value="1" />
           <entry key="rnc" value="3" />
           <entry key="sql" value="6" />
@@ -148,7 +114,7 @@
           <entry key="Image" value="28" />
           <entry key="JavaScript" value="73" />
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="550" />
+          <entry key="Python" value="552" />
           <entry key="PythonStub" value="1" />
           <entry key="RNG Compact" value="3" />
           <entry key="SQL" value="2" />
@@ -215,11 +181,29 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="343">
               <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-527">
+              <caret line="1" selection-end-line="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/database/configDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -287,8 +271,6 @@
         <option value="$PROJECT_DIR$/src/templates/especie/multimedia_especie.html" />
         <option value="$PROJECT_DIR$/src/models/Imagem/imagem.py" />
         <option value="$PROJECT_DIR$/src/models/Imagem/coleccao.py" />
-        <option value="$PROJECT_DIR$/src/database/configDB.py" />
-        <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/models/QuemIdentificou/constantes.py" />
         <option value="$PROJECT_DIR$/src/templates/footer.html" />
         <option value="$PROJECT_DIR$/src/templates/home.html" />
@@ -315,6 +297,8 @@
         <option value="$PROJECT_DIR$/src/models/Especie/vista.py" />
         <option value="$PROJECT_DIR$/src/templates/index.html" />
         <option value="$PROJECT_DIR$/src/__init__.py" />
+        <option value="$PROJECT_DIR$/src/app.py" />
+        <option value="$PROJECT_DIR$/src/database/configDB.py" />
       </list>
     </option>
   </component>
@@ -361,6 +345,12 @@
               <item name="MuseuOnline" type="b2602c69:ProjectViewProjectNode" />
               <item name="MuseuOnline" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MuseuOnline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MuseuOnline" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MuseuOnline" type="b2602c69:ProjectViewProjectNode" />
@@ -607,6 +597,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1600" height="875" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49816176" visible="true" weight="0.17374763" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -665,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/database/configDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="3" selection-start-line="8" selection-start-column="2" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -702,13 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
           <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -955,6 +932,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/database/configDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="1" selection-end-line="60" />
         </state>
       </provider>
     </entry>
