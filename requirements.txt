@@ -24,7 +24,7 @@ python-gettext==4.0
 pytz==2019.1
 six==1.11.0
 transaction==2.4.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 zope.browser==2.3
 zope.browserpage==4.3.0
 zope.component==4.5
