@@ -8,7 +8,7 @@ Flask==1.0.2
 gunicorn==19.9.0
 itsdangerous==0.24
 javascript==2015.32.59
-Jinja2==2.10.1
+Jinja2==2.11.3
 jquery.javascript==1.0.0
 MarkupSafe==1.0
 more-itertools==7.0.0
